@@ -3,7 +3,6 @@
 <div class="bs-example4" data-example-id="simple-responsive-table" style="text-align: center;">
   <div class="table-responsive">
     <div class="agileits-logo navbar-left">
-      <!-- Tabla de Botones -->
       <div class="btn-group">
         <div class="col-md-2 grid_2">
           <button type="button" class="btn btn-info" data-toggle="modal" data-target="#btnInsertarC">
@@ -62,7 +61,8 @@
               </div>
             </div>
           </div>
-        </div><!-- Fin Modal -->
+        </div>
+        <!-- Fin Modal -->
       </div>
     </div>
     <div class="col-md-2 grid_2">
@@ -81,7 +81,6 @@
       </div>
     </div>
     <div class="col-md-2 grid_2">
-      
       <div class="grid_1">
         <h3></h3>
       </div>
@@ -91,7 +90,6 @@
         <h2>Total: <?= $debtCarrefour ?></h2>
       </div>
     </div>
-
     <table class="table table-bordered" id="tablaCarrefour">
       <thead>
         <tr>
@@ -127,7 +125,6 @@
                 <button type="button" class="btn btn-primary" onclick="editarCarrefour('<?= $getAllCarrefour->id ?>','<?= $getAllCarrefour->description_table ?>', '<?= $getAllCarrefour->spending_verpa ?>', '<?= $getAllCarrefour->curt_day ?>', '<?= $getAllCarrefour->status ?>', '<?= $getAllCarrefour->id_register ?>')" data-toggle="modal" data-target="#btnEditarC">
                   Editar<div class="btn-group">
                 </button>
-
                 <!-- Inicio Modal -->
                 <div class="btn-group">
                   <div class="modal fade" id="btnEditarC" tabindex="-1" role="dialog" aria-labelledby="btnEditarCTitle" aria-hidden="true">
@@ -139,7 +136,6 @@
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
-                        <!-- Formulario Inicial -->
                         <div class="modal-body">
                           <form action="<?= base_url ?>Carrefour/editar" id="mEdFormularioCarrefourEditar" method="POST" class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate" ng-submit="submit()">
                             <fieldset>
@@ -180,7 +176,6 @@
                             </div>
                           </form>
                         </div>
-                        <!-- //Formulario Final -->
                       </div>
                     </div>
                   </div>
@@ -204,7 +199,6 @@
                               <span aria-hidden="true">&times;</span>
                             </button>
                           </div>
-                          <!-- Formulario Inicial -->
                           <div class="modal-body">
                             <form action="<?= base_url ?>Carrefour/borrar" method="POST" class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate" ng-submit="submit()">
                               <fieldset>
@@ -224,7 +218,6 @@
                               </div>
                             </form>
                           </div>
-                          <!-- //Formulario Final -->
                         </div>
                       </div>
                     </div>
@@ -250,7 +243,6 @@
   const formularioCarrefourCrear = document.getElementById('formularioCarrefourCrear');
 
   formularioCarrefourCrear.addEventListener('submit', (e) => {
-
     // Paso 4 // // Inicio // Borrar Errores Cajas de Texto
     mDescripcion.addEventListener('keypress', (e) => {
       let mDescripcion = document.querySelector('.cDescripcion');

@@ -1,9 +1,8 @@
-<!-- Tabla Carrefour -->
-<h1 style="text-align: center;" id="tablaTituloDeudas" ><strong>Deudas</strong></h1>
+<!-- Tabla Deudas -->
+<h1 style="text-align: center;" id="tablaTituloDeudas"><strong>Deudas</strong></h1>
 <div class="bs-example4" data-example-id="simple-responsive-table" style="text-align: center;">
   <div class="table-responsive">
     <div class="agileits-logo navbar-left">
-      <!-- Tabla de Botones -->
       <div class="btn-group">
         <div class="col-md-2 grid_2">
           <button type="button" class="btn btn-info" data-toggle="modal" data-target="#btninsertd">
@@ -22,7 +21,7 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <form action="<?=base_url?>Deudas/crear" id="formularioDeudasCrear" method="POST" class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate" ng-submit="submit()">
+                  <form action="<?= base_url ?>Deudas/crear" id="formularioDeudasCrear" method="POST" class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate" ng-submit="submit()">
 
                     <fieldset>
                       <input type="hidden" class="form-control1 ng-invalid ng-invalid-required" id="mNombreD" name="nombre" value="Deudas" ng-model="model.date">
@@ -55,38 +54,17 @@
                     </fieldset>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cerraModalD">Cerrar</button>
-                      <!-- <a href="#selecion">aqui estoy</a> -->
-
-                      <button type="submit" id="insertarAjax"  class="btn btn-info">Insertar</button>
+                      <button type="submit" id="insertarAjax" class="btn btn-info">Insertar</button>
                     </div>
                   </form>
-
-
                 </div>
               </div>
             </div>
           </div>
-        </div><!-- Fin Modal -->
+        </div>
+        <!-- Fin Modal -->
       </div>
     </div>
-
-    <script>
-      
-      $('#insertarAjax').click(function() {
-
-        var mNombreD = document.getElementById('mNombreD').value;
-        var mIdRegistroD = document.getElementById('mIdRegistroD').value;
-        var mDescripcionD = document.getElementById('mDescripcionD').value;
-        var mGastosD = document.getElementById('mGastosD').value;
-        var mDiaCorteD = document.getElementById('mDiaCorteD').value;
-        var mStatusD = document.getElementById('mStatusD').value;
-        var tabla = document.querySelector('#tablaDeuda');
-
-        var ruta = "nombre=" + mNombreD + "&idRegistro=" + mIdRegistroD + "&descripcion=" + mDescripcionD + "&gasto=" + mGastosD + "&diaCorte=" + mDiaCorteD + "&status=" + mStatusD;
-      });
-    </script>
-
-
     <div class="col-md-2 grid_2">
       <div class="grid_1">
         <h3></h3>
@@ -146,14 +124,105 @@
                   Editar
                 </button>
               </td>
+              <!-- Inicio Modal -->
+              <div class="btn-group">
+                <div class="modal fade" id="btnEditarDeuda" tabindex="-1" role="dialog" aria-labelledby="btnEditarDeudaTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-scrollable" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h3 class="modal-title" id="btnEditarDeudaTitle">Editar Deuda</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <form action="<?= base_url ?>Deudas/editar" id="mEdFormularioDeudaEditar" method="POST" class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate" ng-submit="submit()">
+                          <fieldset>
+                            <input type="hidden" class="form-control1 ng-invalid ng-invalid-required" name="id" id="mIdEditarDeuda" ng-model="model.date">
+
+                            <input type="hidden" class="form-control1 ng-invalid ng-invalid-required" name="idRegister" id="mIdRegisterEditarD" ng-model="model.date">
+
+                            <div class="form-group cDescriptionEditarD">
+                              <label class="control-label navbar-left"><strong>Descripción</strong></label>
+                              <input type="text" class="form-control1 ng-invalid ng-invalid-required" name="descripcionGastos" id="mDescriptionEditarD" ng-model="model.date">
+                              <label class="navbar-left" id="mostrarMensajeErrorEditarD" style="color: red;"></label>
+                            </div>
+
+                            <div class="form-group cEdSpendingEditarD">
+                              <label class="control-label navbar-left"><strong>Gastos</strong></label>
+                              <input type="text" class="form-control1 ng-invalid ng-invalid-required" name="gasto" id="mSpendingEditarD" ng-model="model.date">
+                              <label class="navbar-left" id="mostrarMensajeErrorEditarD" style="color: red;"></label>
+                            </div>
+
+                            <div class="form-group cCurtDayEditarD">
+                              <label class="control-label navbar-left"><strong>Dia de Corte</strong></label>
+                              <input type="text" class="form-control1 ng-invalid ng-invalid-required" name="diaCorte" id="mCurtDayEditarD" ng-model="model.date">
+                              <label class="navbar-left" id="mostrarMensajeErrorEditarD" style="color: red;"></label>
+                            </div>
+
+                            <div class="form-group">
+                              <label class="control-label navbar-left"><strong>Selecciona el Estatus</strong></label>
+                            </div>
+
+                            <select class="form-control" name="status[]" id="mStatusEditarD">
+                              <option name="status">PENDIENTE</option>
+                              <option name="status">PAGADO</option>
+                            </select><br>
+                          </fieldset>
+
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Editar</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //Fin Modal -->
               <td>
                 <button type="button" class="btn btn-warning" onclick="eliminarDeuda('<?= $getAllDeuda->id ?>','<?= $getAllDeuda->description_table ?>','<?= $getAllDeuda->id_register ?>')" data-toggle="modal" data-target="#btnEliminarDeuda">
                   Eliminar
                 </button>
               </td>
+              <!-- Inicio Modal Eliminar -->
+              <div class="btn-group">
+                <div class="modal fade" id="btnEliminarDeuda" tabindex="-1" role="dialog" aria-labelledby="btnEliminarDeudaTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-scrollable" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h3 class="modal-title" id="btnEliminarDeudaTitle">Eliminar Deuda</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <form action="<?= base_url ?>Deudas/borrar" method="POST" class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate" ng-submit="submit()">
+                          <fieldset>
+                            <input type="hidden" class="form-control1 ng-invalid ng-invalid-required" name="id" id="mIdEliminarDeuda" ng-model="model.date">
+
+                            <input type="hidden" class="form-control1 ng-invalid ng-invalid-required" name="idRegistro" id="mIdRegisterDeuda" ng-model="model.date">
+
+                            <div class="form-group">
+                              <label class="control-label navbar-left"><strong>Descripcion</strong></label>
+                              <input type="text" class="form-control1 ng-invalid ng-invalid-required" name="mes" id="mDescriptionEliminarDeuda" value="" ng-model="model.date">
+                            </div>
+                            <br>
+                          </fieldset>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-warning">Eliminar</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- //Fin Modal -->
             </tr>
           <?php endwhile; ?>
-
         <?php else : ?>
           <tr>
             <td colspan="10" class="alert alert-success" role="alert">No hay ningun registro</td>
@@ -161,109 +230,12 @@
         <?php endif; ?>
       </tbody>
     </table>
-    <!-- Inicio Modal Editar-->
-    <div class="btn-group">
-      <div class="modal fade" id="btnEditarDeuda" tabindex="-1" role="dialog" aria-labelledby="btnEditarDeudaTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h3 class="modal-title" id="btnEditarDeudaTitle">Editar Deuda</h3>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <!-- Formulario Inicial -->
-            <div class="modal-body">
-              <form action="<?= base_url ?>Deudas/editar" id="mEdFormularioDeudaEditar" method="POST" class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate" ng-submit="submit()">
-                <fieldset>
-                  <input type="hidden" class="form-control1 ng-invalid ng-invalid-required" name="id" id="mIdEditarDeuda" ng-model="model.date">
-
-                  <input type="hidden" class="form-control1 ng-invalid ng-invalid-required" name="idRegister" id="mIdRegisterEditarD" ng-model="model.date">
-
-                  <div class="form-group cDescriptionEditarD">
-                    <label class="control-label navbar-left"><strong>Descripción</strong></label>
-                    <input type="text" class="form-control1 ng-invalid ng-invalid-required" name="descripcionGastos" id="mDescriptionEditarD" ng-model="model.date">
-                    <label class="navbar-left" id="mostrarMensajeErrorEditarD" style="color: red;"></label>
-                  </div>
-
-                  <div class="form-group cEdSpendingEditarD">
-                    <label class="control-label navbar-left"><strong>Gastos</strong></label>
-                    <input type="text" class="form-control1 ng-invalid ng-invalid-required" name="gasto" id="mSpendingEditarD" ng-model="model.date">
-                    <label class="navbar-left" id="mostrarMensajeErrorEditarD" style="color: red;"></label>
-                  </div>
-
-                  <div class="form-group cCurtDayEditarD">
-                    <label class="control-label navbar-left"><strong>Dia de Corte</strong></label>
-                    <input type="text" class="form-control1 ng-invalid ng-invalid-required" name="diaCorte" id="mCurtDayEditarD" ng-model="model.date">
-                    <label class="navbar-left" id="mostrarMensajeErrorEditarD" style="color: red;"></label>
-                  </div>
-
-                  <div class="form-group">
-                    <label class="control-label navbar-left"><strong>Selecciona el Estatus</strong></label>
-                  </div>
-
-                  <select class="form-control" name="status[]" id="mStatusEditarD">
-                    <option name="status">PENDIENTE</option>
-                    <option name="status">PAGADO</option>
-                  </select><br>
-                </fieldset>
-
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                  <button type="submit" class="btn btn-primary">Editar</button>
-                </div>
-              </form>
-            </div>
-            <!-- //Formulario Final -->
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- //Fin Modal Editar-->
-
-    <!-- Inicio Modal Eliminar -->
-    <div class="btn-group">
-      <div class="modal fade" id="btnEliminarDeuda" tabindex="-1" role="dialog" aria-labelledby="btnEliminarDeudaTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h3 class="modal-title" id="btnEliminarDeudaTitle">Eliminar Deuda</h3>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <!-- Formulario Inicial -->
-            <div class="modal-body">
-              <form action="<?= base_url ?>Deudas/borrar" method="POST" class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate" ng-submit="submit()">
-                <fieldset>
-                  <input type="hidden" class="form-control1 ng-invalid ng-invalid-required" name="id" id="mIdEliminarDeuda" ng-model="model.date">
-
-                  <input type="hidden" class="form-control1 ng-invalid ng-invalid-required" name="idRegistro" id="mIdRegisterDeuda" ng-model="model.date">
-
-                  <div class="form-group">
-                    <label class="control-label navbar-left"><strong>Descripcion</strong></label>
-                    <input type="text" class="form-control1 ng-invalid ng-invalid-required" name="mes" id="mDescriptionEliminarDeuda" value="" ng-model="model.date">
-                  </div>
-                  <br>
-                </fieldset>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                  <button type="submit" class="btn btn-warning">Eliminar</button>
-                </div>
-              </form>
-            </div>
-            <!-- //Formulario Final Eliminar -->
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- //Fin Modal -->
-
   </div>
 </div>
 <?php Utils::borrarErrores(); ?>
+
 <script>
-  // INICIO // MODAL CARREFOUR CREAR
+  // INICIO // MODAL DEUDAS CREAR
   // Paso 1 // Capturo los ID del Formulario
   const mDescripcionD = document.getElementById('mDescripcionD');
   const mGastosD = document.getElementById('mGastosD');
@@ -301,9 +273,7 @@
     mDiaCorteD.lastElementChild.innerHTML = "";
   });
 
-
   // Paso 4 // // Fin // Borrar Errores Cajas de Texto
-
   formularioDeudasCrear.addEventListener('submit', (e) => {
     // Paso 2 // // Inicio // Validar cajas de Texto 
     if (mDescripcionD.value.trim() == "") {

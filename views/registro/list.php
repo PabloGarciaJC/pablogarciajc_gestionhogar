@@ -1,8 +1,6 @@
-
-<!-- Tabla Carrefour -->
+<!-- Tabla Registro -->
 <div class="bs-example4" data-example-id="simple-responsive-table" style="text-align: center;">
   <div class="table-responsive">
-
     <h1 style="text-align: center;"><strong>Gestión de Finanzas para el Hogar</strong></h1>
     <?php if (isset($_SESSION["mensajeTablaExito"])) : ?>
       <div class="alert alert-success" role="alert">
@@ -13,14 +11,11 @@
         <?= $_SESSION["mensajeTablaError"]; ?>
       </div>
     <?php endif; ?>
-
     <div class="agileits-logo navbar-left">
-      <!-- Formulario-->
       <div class="btn-group">
         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#btncrearnuevo">
           Crear Nuevo
         </button>
-
         <!-- Inicio Modal -->
         <div class="btn-group">
           <div class="modal fade" id="btncrearnuevo" tabindex="-1" role="dialog" aria-labelledby="btncrearnuevoTitle" aria-hidden="true">
@@ -32,7 +27,6 @@
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <!-- Contenedor Inicial -->
                 <div class="modal-body">
                   <form action="<?= base_url ?>Registro/crear" method="POST" id="mFormulario" class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate" ng-submit="submit()">
                     <fieldset>
@@ -73,23 +67,20 @@
                       </div>
                       <label class="navbar-left" id="mensajesErroresGenerales" style="color: red;"></label>
                     </fieldset>
-                    
+
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                       <button type="submit" id="mFormuario" class="btn btn-info">Crear</button>
                     </div>
                   </form>
                 </div>
-                <!-- Contenedor Final -->
               </div>
             </div>
           </div>
-          <!-- Fin Modal -->
         </div>
+        <!-- //Inicio Modal -->
       </div>
     </div>
-    <!-- // Formulario-->
-
     </br></br>
     <table class="table table-bordered" id="tablaRegistro">
       <thead>
@@ -117,11 +108,9 @@
               <td><?= $getRegisterAll->year ?></td>
               <td><a href="<?= base_url ?>Registro/historial&id=<?= $getRegisterAll->id ?>">Crear</a></td>
               <td>
-
                 <button type="button" class="btn btn-primary" onclick="editarRegistro('<?= $getRegisterAll->id ?>', '<?= $getRegisterAll->income_veronica ?>', '<?= $getRegisterAll->income_pablo ?>', '<?= $getRegisterAll->income_extra ?>','<?= $getRegisterAll->saving_verpa ?>', '<?= $getRegisterAll->month ?>', '<?= $getRegisterAll->year ?>')" data-toggle="modal" data-target="#btneditar">
                   Editar<div class="btn-group">
                 </button>
-
                 <!-- Inicio Modal -->
                 <div class="btn-group">
                   <div class="modal fade" id="btneditar" tabindex="-1" role="dialog" aria-labelledby="btneditarTitle" aria-hidden="true">
@@ -190,7 +179,6 @@
                 </div>
                 <!-- //Fin Modal -->
               </td>
-
               <td>
                 <div class="btn-group">
                   <button type="button" class="btn btn-warning" onclick="eliminarRegistro('<?= $getRegisterAll->id ?>', '<?= $getRegisterAll->month ?>', '<?= $getRegisterAll->year ?>')" data-toggle="modal" data-target="#btneliminar">
@@ -207,7 +195,6 @@
                               <span aria-hidden="true">&times;</span>
                             </button>
                           </div>
-                          <!-- Formulario Inicial -->
                           <div class="modal-body">
                             <form action="<?= base_url ?>Registro/delete" method="POST" class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate" ng-submit="submit()">
                               <fieldset>
@@ -231,7 +218,6 @@
                               </div>
                             </form>
                           </div>
-                          <!-- //Formulario Final -->
                         </div>
                       </div>
                     </div>
@@ -248,6 +234,7 @@
   </div>
 </div>
 <?php Utils::borrarErrores(); ?>
+
 <script>
   // INICIO // MODAL REGISTRO CREAR
   // Paso 1 // Capturo los ID del Formulario
@@ -391,7 +378,6 @@
   }
   // Paso 5 // // Fin // Mostrar Coincidencia de Fecha Registro
   // FIN // MODAL REGISTRO CREAR....
-
 
   // INICIO // MODAL REGISTRO EDITAR
   function editarRegistro(id, income_veronica, income_pablo, income_extra, saving_verpa, month, year) {

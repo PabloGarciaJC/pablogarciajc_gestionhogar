@@ -1,10 +1,8 @@
-
 <!-- Tabla Carrefour -->
 <h1 style="text-align: center;" id="tablaTituloServicios"><strong>Servicios</strong></h1>
 <div class="bs-example4" data-example-id="simple-responsive-table" style="text-align: center;">
   <div class="table-responsive">
     <div class="agileits-logo navbar-left">
-      <!-- Tabla de Botones -->
       <div class="btn-group">
         <div class="col-md-2 grid_2">
           <button type="button" class="btn btn-info" data-toggle="modal" data-target="#btninserts">
@@ -62,7 +60,8 @@
               </div>
             </div>
           </div>
-        </div><!-- Fin Modal -->
+        </div>
+        <!-- Fin Modal -->
       </div>
     </div>
     <div class="col-md-2 grid_2">
@@ -137,7 +136,6 @@
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
-                        <!-- Formulario Inicial -->
                         <div class="modal-body">
                           <form action="<?= base_url ?>Servicios/editar" id="mEdFormularioServiciosEditar" method="POST" class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate" ng-submit="submit()">
                             <fieldset>
@@ -179,7 +177,6 @@
                             </div>
                           </form>
                         </div>
-                        <!-- //Formulario Final -->
                       </div>
                     </div>
                   </div>
@@ -201,7 +198,6 @@
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
-                        <!-- Formulario Inicial -->
                         <div class="modal-body">
                           <form action="<?= base_url ?>Servicios/borrar" method="POST" class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate" ng-submit="submit()">
                             <fieldset>
@@ -221,7 +217,6 @@
                             </div>
                           </form>
                         </div>
-                        <!-- //Formulario Final -->
                       </div>
                     </div>
                   </div>
@@ -268,10 +263,7 @@
       let mGastosS = document.querySelector('.cGastosS');
       mGastosS.lastElementChild.innerHTML = "";
     });
-
-
     // Paso 4 // // Fin // Borrar Errores Cajas de Texto
-
 
     // Paso 2 // // Inicio // Validar cajas de Texto 
     if (mDescripcionS.value.trim() == "") {
@@ -371,7 +363,6 @@
       }
       // Paso 3 // // Fin // Mostrar Errores 
     });
-
   }
 
   function eliminarServicio(idS, description, idRegister) {
