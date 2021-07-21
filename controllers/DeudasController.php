@@ -142,7 +142,6 @@ class DeudasController
   public function editar()
   {
     if (isset($_POST)) {
-
       $id = isset($_POST["id"]) ? $_POST["id"] : false;
       $idRegistro = isset($_POST["idRegister"]) ? $_POST["idRegister"] : false;
       $descripcionGastos = isset($_POST["descripcionGastos"]) ? $_POST["descripcionGastos"] : false;
@@ -165,7 +164,6 @@ class DeudasController
 
       //Reclutar Errores 
       $errores = array();
-
       // Validar Datos
       if (empty(trim($descripcionGastos))) {
         $errores["descripcionGastos"] = "el formato no es el correcto!";
@@ -186,9 +184,7 @@ class DeudasController
       $editar->setSpendingVerpa($gasto);
       $editar->setCurtDay($diaCorte);
       $editar->setStatus($statu);
-
       if (count($errores) == 0) {
-
         $edit = $editar->edit();
         if ($edit) {
           $_SESSION['nombreTabla'] = $nombre;

@@ -4,7 +4,6 @@ require_once 'model/registro.php';
 
 class CarrefourController
 {
-
   public function crear()
   {
     if (isset($_POST)) {
@@ -38,7 +37,7 @@ class CarrefourController
       }
 
       if (empty(trim($gastosVerpa)) || !is_numeric($gastosVerpa) || !preg_match("/[0-9]/", $gastosVerpa)) {
-        $errores["$gastosVerpa"] = "el formato de Gasto no es el correcto!";
+        $errores["$gastosVerpa"] = "el formato no es el correcto!";
       }
 
       if (empty(trim($diaCorte))) {
@@ -79,7 +78,6 @@ class CarrefourController
   public function editar()
   {
     if (isset($_POST)) {
-
       $id = isset($_POST["id"]) ? $_POST["id"] : false;
       $idRegistro = isset($_POST["idRegister"]) ? $_POST["idRegister"] : false;
       $descripcionGastos = isset($_POST["descripcionGastos"]) ? $_POST["descripcionGastos"] : false;
@@ -91,7 +89,6 @@ class CarrefourController
       };
       $nombre = 'Carrefour';
       $statusTabla = 'Editado';
-
       //Repoblar Formulario
       $form = array();
       $form["$id"] = $id;
@@ -99,33 +96,26 @@ class CarrefourController
       $form["gasto"] = $gasto;
       $form["diaCorte"] = $diaCorte;
       $form["statu"] = $statu;
-
       //Reclutar Errores 
       $errores = array();
-
       // Validar Datos
       if (empty(trim($descripcionGastos))) {
         $errores["descripcionGastos"] = "el formato no es el correcto!";
       }
-
       if (empty(trim($gasto)) || !is_numeric($gasto) || !preg_match("/[0-9]/", $gasto)) {
         $errores["ingresoPablo"] = "el formato no es el correcto!";
       }
-
       if (empty(trim($diaCorte))) {
         $errores["diaCorte"] = "el formato no es el correcto!";
       }
-
-      //Instancio 
+      //Instancio:
       $editar = new Carrefour();
       $editar->setId($id);
       $editar->setDescriptionTable($descripcionGastos);
       $editar->setSpendingVerpa($gasto);
       $editar->setCurtDay($diaCorte);
       $editar->setStatus($statu);
-
       if (count($errores) == 0) {
-
         $edit = $editar->edit();
         if ($edit) {
           $_SESSION['nombreTabla'] = $nombre;

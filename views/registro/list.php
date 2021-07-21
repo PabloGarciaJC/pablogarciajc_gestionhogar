@@ -3,7 +3,7 @@
   <div class="table-responsive">
     <h1 style="text-align: center;"><strong>Gestión de Finanzas para el Hogar</strong></h1>
     <?php if (isset($_SESSION["mensajeTablaExito"])) : ?>
-      <div class="alert alert-success" role="alert">
+      <div class="alert alert-success">
         <?= $_SESSION["mensajeTablaExito"]; ?>
       </div>
     <?php elseif (isset($_SESSION["mensajeTablaError"])) : ?>
