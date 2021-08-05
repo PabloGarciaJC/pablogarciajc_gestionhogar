@@ -90,18 +90,36 @@ class Carrefour
   }
 
   //CODIGO SQL 
+
+  public function getRegister()
+  {
+    $sql = "SELECT * FROM carrefour WHERE id_register = {$this->id} ORDER BY id DESC";
+    $carrefour = $this->db->query($sql);
+ /*           echo $sql;
+    echo "</br>";
+    echo $this->db->error;
+    die();    */
+    return $carrefour; 
+  }
+
+
+
   public function getByIdRegister()
   {
     $sql = "SELECT * FROM carrefour WHERE id_register = {$this->id} ORDER BY id DESC";
     $carrefour = $this->db->query($sql);
+    /*       echo $sql;
+    echo "</br>";
+    echo $this->db->error;
+    die();   */
     return $carrefour;
   }
 
   public function getSumDebtCarrefour()
   {
     $sql = "SELECT description_table, sum(spending_verpa) as totalCarrefour  FROM carrefour where id_register = {$this->id};";
-    $debtCarrefour = $this->db->query($sql);     
-  /*  echo $sql;
+    $debtCarrefour = $this->db->query($sql);
+    /*  echo $sql;
     echo "</br>";
     echo $this->db->error;
     die();  */

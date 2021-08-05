@@ -154,4 +154,32 @@ class CarrefourController
       header("Location:" . base_url . 'Registro/historial&id=' . $idRegistro);
     }
   }
+
+  public function repoblar()
+  {
+
+    echo 'hola';
+    // $idRegistro = $_GET['id'];
+    // $getAllCarrefoursRepoblar = new Carrefour();
+    // $getAllCarrefoursRepoblar->setId($idRegistro);
+
+    // $_SESSION['getAllCarrefourRepoblar'] = $getAllCarrefoursRepoblar->getRegister();
+
+    // while ($getAllCarrefourR = $_SESSION['getAllCarrefourRepoblar']->fetch_object()) {
+    //   echo $_SESSION['getAllCarrefourR'] = $getAllCarrefourR->description_table, "<br>";
+    // }
+
+    //   // echo $_SESSION['nameCarrefourR'] = $getAllCarrefourR->name_carrefour, "<br>" ;
+    //   echo $_SESSION['descripcionCarrefourR'] = $_SESSION['getAllCarrefourR']->description_table, "<br>";
+    //   echo $_SESSION['spendingCarrefourR'] = $_SESSION['getAllCarrefourR']->spending_verpa, "<br>";
+    //   echo $_SESSION['curtDayCarrefourR'] = $_SESSION['getAllCarrefourR']->curt_day, "<br>";
+    //   echo $_SESSION['statusCarrefourR'] = $_SESSION['getAllCarrefourR']->status, "<br>";
+
+    //  /*  echo $getAllCarrefourR->name_carrefour;
+    //   echo $getAllCarrefourR->description_table;
+    //   echo $getAllCarrefourR->spending_verpa;
+    //   echo  $getAllCarrefourR->curt_day;
+    //   echo $getAllCarrefourR->status; */
+ 
+  }
 }

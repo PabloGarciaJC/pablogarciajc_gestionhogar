@@ -1,14 +1,46 @@
+<div id="respuesta"></div>
 <!-- Tabla Carrefour -->
 <h1 style="text-align: center;" id="tablaTituloCarrefour"><strong>Carrefour</strong></h1>
 <div class="bs-example4" data-example-id="simple-responsive-table" style="text-align: center;">
   <div class="table-responsive">
     <div class="agileits-logo navbar-left">
       <div class="btn-group">
-        <div class="col-md-2 grid_2">
+        <div class="col-md-6 grid_2">
           <button type="button" class="btn btn-info" data-toggle="modal" data-target="#btnInsertarC">
             Insertar
           </button>
         </div>
+        <div class="col-md-6 grid_2">
+          <a href="" id="repoblar" class="btn btn-info">Repoblar</a>
+        </div>
+
+
+        <script>
+          $("#repoblar").click(function() {
+            url = "<?= base_url ?>Carrefour/repoblar&id=<?= $idRegisterC ?>";
+
+         
+
+          $.ajax({
+              url: url,
+              type: "GET",  
+              data: parametros         
+            })
+            .done(function(data) {
+              $("#respuesta").html(data);
+            })
+            .fail(function(data) {
+              alert("error");
+            })
+            .always(function(data) {
+              alert("complete");
+            });
+
+          });
+        </script>
+
+
+
         <!-- Inicio Modal -->
         <div class="btn-group">
           <div class="modal fade" id="btnInsertarC" tabindex="-1" role="dialog" aria-labelledby="btnInsertarC" aria-hidden="true">
@@ -92,87 +124,129 @@
     </div>
     <table class="table table-bordered" id="tablaCarrefour">
       <thead>
-        <tr>
-          <th style="text-align: center;">Descripción</th>
-          <th style="text-align: center;">Gastos</th>
-          <th style="text-align: center;">Día de Corte</th>
-          <th style="text-align: center;">Estatus</th>
-          <th style="text-align: center;">Editar</th>
-          <th style="text-align: center;">Eliminar</th>
-        </tr>
+        <?php if ($getAllCarrefours->num_rows > 0) : ?>
+          <tr>
+            <th style="text-align: center;">Descripción</th>
+            <th style="text-align: center;">Gastos</th>
+            <th style="text-align: center;">Día de Corte</th>
+            <th style="text-align: center;">Estatus</th>
+            <th style="text-align: center;">Editar</th>
+            <th style="text-align: center;">Eliminar</th>
+          </tr>
       </thead>
       <tbody>
-        <?php if ($getAllCarrefours->num_rows > 0) : ?>
-          <?php while ($getAllCarrefour = $getAllCarrefours->fetch_object()) : ?>
-            <tr>
-              <td><?= $getAllCarrefour->description_table ?></td>
-              <td><?= $getAllCarrefour->spending_verpa ?></td>
-              <td><?= $getAllCarrefour->curt_day ?></td>
-              <td>
-                <div class="btn-group">
-                  <?php if ($getAllCarrefour->status == 'PENDIENTE') : ?>
-                    <?php $btnColor = 'success'; ?>
+        <?php while ($getAllCarrefour = $getAllCarrefours->fetch_object()) : ?>
+          <tr>
+            <td><?= $getAllCarrefour->description_table ?></td>
+            <td><?= $getAllCarrefour->spending_verpa ?></td>
+            <td><?= $getAllCarrefour->curt_day ?></td>
+            <td>
+              <div class="btn-group">
+                <?php if ($getAllCarrefour->status == 'PENDIENTE') : ?>
+                  <?php $btnColor = 'success'; ?>
+                  <button type="button" class="btn btn-<?= $btnColor ?> dropdown-toggle" data-toggle="dropdown">
+                  <?php else : ?>
+                    <?php $btnColor = 'primary'; ?>
                     <button type="button" class="btn btn-<?= $btnColor ?> dropdown-toggle" data-toggle="dropdown">
-                    <?php else : ?>
-                      <?php $btnColor = 'primary'; ?>
-                      <button type="button" class="btn btn-<?= $btnColor ?> dropdown-toggle" data-toggle="dropdown">
-                      <?php endif; ?>
-                      <?= $getAllCarrefour->status ?>
-                      </button>
+                    <?php endif; ?>
+                    <?= $getAllCarrefour->status ?>
+                    </button>
+              </div>
+            </td>
+            <td>
+              <button type="button" class="btn btn-primary" onclick="editarCarrefour('<?= $getAllCarrefour->id ?>','<?= $getAllCarrefour->description_table ?>', '<?= $getAllCarrefour->spending_verpa ?>', '<?= $getAllCarrefour->curt_day ?>', '<?= $getAllCarrefour->status ?>', '<?= $getAllCarrefour->id_register ?>')" data-toggle="modal" data-target="#btnEditarC">
+                Editar<div class="btn-group">
+              </button>
+              <!-- Inicio Modal -->
+              <div class="btn-group">
+                <div class="modal fade" id="btnEditarC" tabindex="-1" role="dialog" aria-labelledby="btnEditarCTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-scrollable" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h3 class="modal-title" id="btnEditarCTitle">Editar Carrefour</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <form action="<?= base_url ?>Carrefour/editar" id="mEdFormularioCarrefourEditar" method="POST" class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate" ng-submit="submit()">
+                          <fieldset>
+                            <input type="hidden" class="form-control1 ng-invalid ng-invalid-required" name="id" id="mIdEditarC" value="" ng-model="model.date">
+                            <input type="hidden" class="form-control1 ng-invalid ng-invalid-required" name="idRegister" id="mIdRegisterEditarC" ng-model="model.date">
+
+                            <div class="form-group cDescriptionEditarC">
+                              <label class="control-label navbar-left"><strong>Descripción</strong></label>
+                              <input type="text" class="form-control1 ng-invalid ng-invalid-required" name="descripcionGastos" id="mDescriptionEditarC" ng-model="model.date">
+                              <label class="navbar-left" id="mostrarMensajeErrorEditarC" style="color: red;"></label>
+                            </div>
+
+                            <div class="form-group cEdSpendingEditarC">
+                              <label class="control-label navbar-left"><strong>Gastos</strong></label>
+                              <input type="text" class="form-control1 ng-invalid ng-invalid-required" name="gasto" id="mSpendingEditarC" ng-model="model.date">
+                              <label class="navbar-left" id="mostrarMensajeErrorEditarC" style="color: red;"></label>
+                            </div>
+
+                            <div class="form-group cCurtDayEditarC">
+                              <label class="control-label navbar-left"><strong>Dia de Corte</strong></label>
+                              <input type="text" class="form-control1 ng-invalid ng-invalid-required" name="diaCorte" id="mCurtDayEditarC" ng-model="model.date">
+                              <label class="navbar-left" id="mostrarMensajeErrorEditarC" style="color: red;"></label>
+                            </div>
+
+                            <div class="form-group">
+                              <label class="control-label navbar-left"><strong>Selecciona el Estatus</strong></label>
+                            </div>
+
+                            <select class="form-control" name="status[]" id="mStatusEditarC">
+                              <option name="status">PENDIENTE</option>
+                              <option name="status">PAGADO</option>
+                            </select><br>
+                          </fieldset>
+
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Editar</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </td>
-              <td>
-                <button type="button" class="btn btn-primary" onclick="editarCarrefour('<?= $getAllCarrefour->id ?>','<?= $getAllCarrefour->description_table ?>', '<?= $getAllCarrefour->spending_verpa ?>', '<?= $getAllCarrefour->curt_day ?>', '<?= $getAllCarrefour->status ?>', '<?= $getAllCarrefour->id_register ?>')" data-toggle="modal" data-target="#btnEditarC">
-                  Editar<div class="btn-group">
+              </div>
+              <!-- //Fin Modal -->
+            </td>
+
+            <td>
+              <div class="btn-group">
+                <button type="button" class="btn btn-warning" onclick="eliminarCarrefour('<?= $getAllCarrefour->id ?>','<?= $getAllCarrefour->description_table ?>','<?= $getAllCarrefour->id_register ?>')" data-toggle="modal" data-target="#btnEliminarC">
+                  Eliminar
                 </button>
                 <!-- Inicio Modal -->
                 <div class="btn-group">
-                  <div class="modal fade" id="btnEditarC" tabindex="-1" role="dialog" aria-labelledby="btnEditarCTitle" aria-hidden="true">
+                  <div class="modal fade" id="btnEliminarC" tabindex="-1" role="dialog" aria-labelledby="btnEliminarCTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-scrollable" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h3 class="modal-title" id="btnEditarCTitle">Editar Carrefour</h3>
+                          <h3 class="modal-title" id="btnEliminarCTitle">Eliminar Carrefour</h3>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
                         <div class="modal-body">
-                          <form action="<?= base_url ?>Carrefour/editar" id="mEdFormularioCarrefourEditar" method="POST" class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate" ng-submit="submit()">
+                          <form action="<?= base_url ?>Carrefour/borrar" method="POST" class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate" ng-submit="submit()">
                             <fieldset>
-                              <input type="hidden" class="form-control1 ng-invalid ng-invalid-required" name="id" id="mIdEditarC" value="" ng-model="model.date">
-                              <input type="hidden" class="form-control1 ng-invalid ng-invalid-required" name="idRegister" id="mIdRegisterEditarC" ng-model="model.date">
+                              <input type="hidden" class="form-control1 ng-invalid ng-invalid-required" name="id" id="mIdEliminarC" ng-model="model.date">
 
-                              <div class="form-group cDescriptionEditarC">
-                                <label class="control-label navbar-left"><strong>Descripción</strong></label>
-                                <input type="text" class="form-control1 ng-invalid ng-invalid-required" name="descripcionGastos" id="mDescriptionEditarC" ng-model="model.date">
-                                <label class="navbar-left" id="mostrarMensajeErrorEditarC" style="color: red;"></label>
-                              </div>
-
-                              <div class="form-group cEdSpendingEditarC">
-                                <label class="control-label navbar-left"><strong>Gastos</strong></label>
-                                <input type="text" class="form-control1 ng-invalid ng-invalid-required" name="gasto" id="mSpendingEditarC" ng-model="model.date">
-                                <label class="navbar-left" id="mostrarMensajeErrorEditarC" style="color: red;"></label>
-                              </div>
-
-                              <div class="form-group cCurtDayEditarC">
-                                <label class="control-label navbar-left"><strong>Dia de Corte</strong></label>
-                                <input type="text" class="form-control1 ng-invalid ng-invalid-required" name="diaCorte" id="mCurtDayEditarC" ng-model="model.date">
-                                <label class="navbar-left" id="mostrarMensajeErrorEditarC" style="color: red;"></label>
-                              </div>
+                              <input type="hidden" class="form-control1 ng-invalid ng-invalid-required" name="idRegistro" id="mIdRegisterC" ng-model="model.date">
 
                               <div class="form-group">
-                                <label class="control-label navbar-left"><strong>Selecciona el Estatus</strong></label>
+                                <label class="control-label navbar-left"><strong>Descripcion</strong></label>
+                                <input type="text" class="form-control1 ng-invalid ng-invalid-required" name="mes" id="mDescriptionEliminarC" value="" ng-model="model.date">
                               </div>
-
-                              <select class="form-control" name="status[]" id="mStatusEditarC">
-                                <option name="status">PENDIENTE</option>
-                                <option name="status">PAGADO</option>
-                              </select><br>
+                              <br>
                             </fieldset>
-
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                              <button type="submit" class="btn btn-primary">Editar</button>
+                              <button type="submit" class="btn btn-warning">Eliminar</button>
                             </div>
                           </form>
                         </div>
@@ -181,56 +255,16 @@
                   </div>
                 </div>
                 <!-- //Fin Modal -->
-              </td>
-
-              <td>
-                <div class="btn-group">
-                  <button type="button" class="btn btn-warning" onclick="eliminarCarrefour('<?= $getAllCarrefour->id ?>','<?= $getAllCarrefour->description_table ?>','<?= $getAllCarrefour->id_register ?>')" data-toggle="modal" data-target="#btnEliminarC">
-                    Eliminar
-                  </button>
-                  <!-- Inicio Modal -->
-                  <div class="btn-group">
-                    <div class="modal fade" id="btnEliminarC" tabindex="-1" role="dialog" aria-labelledby="btnEliminarCTitle" aria-hidden="true">
-                      <div class="modal-dialog modal-dialog-scrollable" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h3 class="modal-title" id="btnEliminarCTitle">Eliminar Carrefour</h3>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                            <form action="<?= base_url ?>Carrefour/borrar" method="POST" class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate" ng-submit="submit()">
-                              <fieldset>
-                                <input type="hidden" class="form-control1 ng-invalid ng-invalid-required" name="id" id="mIdEliminarC" ng-model="model.date">
-
-                                <input type="hidden" class="form-control1 ng-invalid ng-invalid-required" name="idRegistro" id="mIdRegisterC" ng-model="model.date">
-
-                                <div class="form-group">
-                                  <label class="control-label navbar-left"><strong>Descripcion</strong></label>
-                                  <input type="text" class="form-control1 ng-invalid ng-invalid-required" name="mes" id="mDescriptionEliminarC" value="" ng-model="model.date">
-                                </div>
-                                <br>
-                              </fieldset>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                <button type="submit" class="btn btn-warning">Eliminar</button>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- //Fin Modal -->
-              </td>
-            </tr>
-          <?php endwhile; ?>
-        <?php else : ?>
-          <td colspan="10" class="alert alert-success" role="alert">No hay ningun registro</td>
-        <?php endif; ?>
+            </td>
+          </tr>
+        <?php endwhile; ?>
+      <?php else : ?>
+        <td colspan="10" class="alert alert-success" role="alert">No hay ningun registro</td>
+      <?php endif; ?>
       </tbody>
     </table>
+
+
   </div>
 </div>
 

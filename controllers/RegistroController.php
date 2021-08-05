@@ -9,7 +9,7 @@ class RegistroController
   public function index()
   {
     $register = new registro();
-    $getRegistersAll = $register->getAll();
+    $getRegistersAll = $register->getAll();  
     $getServicesAllEdit = $register->getAll();
     $getServicesAllDelete = $register->getAll();
     require_once 'views/layout/banner.php';
@@ -218,7 +218,7 @@ class RegistroController
 
       $carrefour = new Carrefour();
       $carrefour->setId($_GET['id']);
-      $idRegisterC = $_GET['id'];
+      $idRegisterC = $_GET['id'];        
       $getAllCarrefours =  $carrefour->getAllByIdRegister();
 
       /* Banner Two */

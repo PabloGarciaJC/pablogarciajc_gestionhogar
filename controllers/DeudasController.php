@@ -125,6 +125,7 @@ class DeudasController
 
         if ($guardar) {
           $_SESSION['nombreTabla'] = $nombre;
+          var_dump($errores);
           $_SESSION["mensajeTabla"] = "Tabla <strong>$nombre</strong> se ha <strong>$statusTabla</strong> con EXITO";
           header("Location:" . base_url . 'Registro/historial&id=' . $idRegistro);
         } else {
