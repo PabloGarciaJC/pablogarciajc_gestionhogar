@@ -4,10 +4,13 @@
   <div class="table-responsive">
     <div class="agileits-logo navbar-left">
       <div class="btn-group">
-        <div class="col-md-2 grid_2">
+        <div class="col-md-6 grid_2">
           <button type="button" class="btn btn-info" data-toggle="modal" data-target="#btninserts">
             Insertar
           </button>
+        </div>
+        <div class="col-md-6 grid_2">
+          <a href="<?= base_url ?>Servicios/repoblar&id=<?= $idRegisterC ?>" id="repoblar" class="btn btn-info">Repoblar</a>
         </div>
         <!-- Inicio Modal -->
         <div class="btn-group">
@@ -122,7 +125,7 @@
                 </div>
               </td>
               <td>
-                <button type="button" class="btn btn-primary" onclick="editarServicio('<?= $getAllServicio->id ?>','<?= $getAllServicio->description_table ?>', '<?= $getAllServicio->spending_verpa ?>', '<?= $getAllServicio->curt_day ?>', '<?= $getAllServicio->status ?>', '<?= $getAllServicio->id_register ?>')" data-toggle="modal" data-target="#btnEditarS">
+                <button type="button" class="btn btn" style = "background:rgb(18 72 165); color:#ffffff" onclick="editarServicio('<?= $getAllServicio->id ?>','<?= $getAllServicio->description_table ?>', '<?= $getAllServicio->spending_verpa ?>', '<?= $getAllServicio->curt_day ?>', '<?= $getAllServicio->status ?>', '<?= $getAllServicio->id_register ?>')" data-toggle="modal" data-target="#btnEditarS">
                   Editar
                 </button>
                 <!-- Inicio Modal -->

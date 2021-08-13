@@ -108,7 +108,7 @@
               <td><?= $getRegisterAll->year ?></td>
               <td><a href="<?= base_url ?>Registro/historial&id=<?= $getRegisterAll->id ?>">Crear</a></td>
               <td>
-                <button type="button" class="btn btn-primary" onclick="editarRegistro('<?= $getRegisterAll->id ?>', '<?= $getRegisterAll->income_veronica ?>', '<?= $getRegisterAll->income_pablo ?>', '<?= $getRegisterAll->income_extra ?>','<?= $getRegisterAll->saving_verpa ?>', '<?= $getRegisterAll->month ?>', '<?= $getRegisterAll->year ?>')" data-toggle="modal" data-target="#btneditar">
+                <button type="button" class="btn btn" style = "background:rgb(18 72 165); color:#ffffff" onclick="editarRegistro('<?= $getRegisterAll->id ?>', '<?= $getRegisterAll->income_veronica ?>', '<?= $getRegisterAll->income_pablo ?>', '<?= $getRegisterAll->income_extra ?>','<?= $getRegisterAll->saving_verpa ?>', '<?= $getRegisterAll->month ?>', '<?= $getRegisterAll->year ?>')" data-toggle="modal" data-target="#btneditar">
                   Editar<div class="btn-group">
                 </button>
                 <!-- Inicio Modal -->
@@ -378,7 +378,7 @@
   }
   // Paso 5 // // Fin // Mostrar Coincidencia de Fecha Registro
   // FIN // MODAL REGISTRO CREAR....
-
+  
   // INICIO // MODAL REGISTRO EDITAR
   function editarRegistro(id, income_veronica, income_pablo, income_extra, saving_verpa, month, year) {
     // Paso 0 // Imprimo los Registros de PHP en la Caja de Texto

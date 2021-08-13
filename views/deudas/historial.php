@@ -4,10 +4,13 @@
   <div class="table-responsive">
     <div class="agileits-logo navbar-left">
       <div class="btn-group">
-        <div class="col-md-2 grid_2">
+        <div class="col-md-6 grid_2">
           <button type="button" class="btn btn-info" data-toggle="modal" data-target="#btninsertd">
             Insertar
           </button>
+        </div>
+        <div class="col-md-6 grid_2">
+          <a href="<?= base_url ?>Deudas/repoblar&id=<?= $idRegisterC ?>" id="repoblar" class="btn btn-info">Repoblar</a>
         </div>
         <!-- Inicio Modal -->
         <div class="btn-group">
@@ -120,7 +123,7 @@
                 </div>
               </td>
               <td>
-                <button type="button" class="btn btn-primary" onclick="editarDeuda('<?= $getAllDeuda->id ?>','<?= $getAllDeuda->description_table ?>', '<?= $getAllDeuda->spending_verpa ?>', '<?= $getAllDeuda->curt_day ?>', '<?= $getAllDeuda->status ?>', '<?= $getAllDeuda->id_register ?>')" data-toggle="modal" data-target="#btnEditarDeuda">
+                <button type="button" class="btn btn" style = "background:rgb(18 72 165); color:#ffffff" onclick="editarDeuda('<?= $getAllDeuda->id ?>','<?= $getAllDeuda->description_table ?>', '<?= $getAllDeuda->spending_verpa ?>', '<?= $getAllDeuda->curt_day ?>', '<?= $getAllDeuda->status ?>', '<?= $getAllDeuda->id_register ?>')" data-toggle="modal" data-target="#btnEditarDeuda">
                   Editar
                 </button>
               </td>

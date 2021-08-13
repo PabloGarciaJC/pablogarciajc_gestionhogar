@@ -4,7 +4,6 @@ require_once 'model/registro.php';
 
 class ServiciosController
 {
-
   public function crear()
   {
     $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : false;
@@ -16,7 +15,7 @@ class ServiciosController
     for ($i = 0; $i < count($status); $i++) {
       $statu = $status[$i];
     };
-    $statusTabla = 'Guardado';
+    $statusTabla = 'GUARDADO';
 
     //Repoblar Formulario
     $form = array();
@@ -84,7 +83,7 @@ class ServiciosController
         $statu = $status[$i];
       };
       $nombre = 'Servicios';
-      $statusTabla = 'Editado';
+      $statusTabla = 'EDITADO';
 
       //Repoblar Formulario
       $form = array();
@@ -144,7 +143,7 @@ class ServiciosController
       $id = isset($_POST['id']) ? $_POST['id'] : false;
       $idRegistro = isset($_POST['idRegistro']) ? $_POST['idRegistro'] : false;
       $nombre = 'Servicios';
-      $statusTabla = 'Borrado';
+      $statusTabla = 'BORRADO';
 
       $delete = new Servicio();
       $delete->setId($id);
@@ -156,5 +155,102 @@ class ServiciosController
         header("Location:" . base_url . 'Registro/historial&id=' . $idRegistro);
       }
     }
+  }
+
+  public function repoblar()
+  {
+    if (isset($_GET)) {
+      $servicio = new Servicio();
+      $idRegistro = $_GET['id'];
+      $nombre = 'Servicio';
+      $descripcionTabla = "Alquiler Piso";
+      $gastosVerpa = 550.00;
+      $diaCorte = 'Ultimo de Cada Mes';
+      $statu = 'PENDIENTE';
+      $servicio->setName($nombre);
+      $servicio->setDescriptionTable($descripcionTabla);
+      $servicio->setSpendingVerpa($gastosVerpa);
+      $servicio->setCurtDay($diaCorte);
+      $servicio->setStatus($statu);
+      $servicio->setIdRegister($idRegistro);
+      // Guardar
+      $guardarAgua = $servicio->save();
+
+      if ($guardarAgua) {
+        $idRegistro = $_GET['id'];
+        $nombre = 'Servicios';
+        $descripcionTabla = "Agua";
+        $gastosVerpa = 00.00;
+        $diaCorte = 'Cada 2 Meses';
+        $statu = 'PENDIENTE';
+        $servicio->setName($nombre);
+        $servicio->setDescriptionTable($descripcionTabla);
+        $servicio->setSpendingVerpa($gastosVerpa);
+        $servicio->setCurtDay($diaCorte);
+        $servicio->setStatus($statu);
+        $servicio->setIdRegister($idRegistro);
+        // Guardar
+        $guardarLuz = $servicio->save();
+
+        if ($guardarLuz) {
+          $idRegistro = $_GET['id'];
+          $nombre = 'Servicios';
+          $descripcionTabla = "Luz";
+          $gastosVerpa = 75.00;
+          $diaCorte = '30 de Cada Mes';
+          $statu = 'PENDIENTE';
+          $servicio->setName($nombre);
+          $servicio->setDescriptionTable($descripcionTabla);
+          $servicio->setSpendingVerpa($gastosVerpa);
+          $servicio->setCurtDay($diaCorte);
+          $servicio->setStatus($statu);
+          $servicio->setIdRegister($idRegistro);
+          // Guardar
+          $guardarYoigo = $servicio->save();
+
+          if ($guardarYoigo) {
+            $idRegistro = $_GET['id'];
+            $nombre = 'Servicios';
+            $descripcionTabla = "Yoigo - Fibra";
+            $gastosVerpa = 59.00;
+            $diaCorte = '4 de Cada Mes';
+            $statu = 'PENDIENTE';
+            $servicio->setName($nombre);
+            $servicio->setDescriptionTable($descripcionTabla);
+            $servicio->setSpendingVerpa($gastosVerpa);
+            $servicio->setCurtDay($diaCorte);
+            $servicio->setStatus($statu);
+            $servicio->setIdRegister($idRegistro);
+            // Guardar
+            $guardarPaginaWeb = $servicio->save();
+
+            if($guardarPaginaWeb){
+              $idRegistro = $_GET['id'];
+              $nombre = 'Servicios';
+              $descripcionTabla = "Pagina Web Pablo Garcia";
+              $gastosVerpa = 10.00;
+              $diaCorte = '1 de Cada Mes';
+              $statu = 'PENDIENTE';
+              $servicio->setName($nombre);
+              $servicio->setDescriptionTable($descripcionTabla);
+              $servicio->setSpendingVerpa($gastosVerpa);
+              $servicio->setCurtDay($diaCorte);
+              $servicio->setStatus($statu);
+              $servicio->setIdRegister($idRegistro);
+              // Guardar
+              $guardarFin = $servicio->save();
+
+              if($guardarFin){
+                $statusTabla = 'REPOBLADO';
+                $_SESSION['nombreTabla'] = $nombre;
+                $_SESSION["mensajeTabla"] = "Tabla <strong>$nombre</strong> se ha <strong>$statusTabla</strong> con EXITO";
+              }
+
+            }
+          }
+        }
+      }
+    }
+    header("Location:" . base_url . 'Registro/historial&id=' . $idRegistro);
   }
 }

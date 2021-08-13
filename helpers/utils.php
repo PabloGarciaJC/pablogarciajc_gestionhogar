@@ -18,6 +18,8 @@ class Utils
     $_SESSION["mensajeTabla"] = null;
     $_SESSION["nombreTabla"] = null; 
     $_SESSION["mensajeTablaExito"] = null; 
-    $_SESSION["mensajeTablaError"] = null;  
+    $_SESSION["mensajeTablaError"] = null; 
+    $_SESSION["bannerTwo"] = null; 
+   
   }
 }

@@ -17,7 +17,7 @@ class CarrefourController
       for ($i = 0; $i < count($status); $i++) {
         $statu = $status[$i];
       };
-      $statusTabla = 'Guardado';
+      $statusTabla = 'GUARDADO';
 
       //Repoblar Formulario
       $form = array();
@@ -53,7 +53,6 @@ class CarrefourController
       $guardar->setStatus($statu);
       $guardar->setIdRegister($idRegistro);
 
-
       if (count($errores) == 0) {
 
         $guardar = $guardar->save();
@@ -88,7 +87,7 @@ class CarrefourController
         $statu = $status[$i];
       };
       $nombre = 'Carrefour';
-      $statusTabla = 'Editado';
+      $statusTabla = 'EDITADO';
       //Repoblar Formulario
       $form = array();
       $form["$id"] = $id;
@@ -141,7 +140,7 @@ class CarrefourController
       $id = isset($_POST['id']) ? $_POST['id'] : false;
       $idRegistro = isset($_POST['idRegistro']) ? $_POST['idRegistro'] : false;
       $nombre = 'Carrefour';
-      $statusTabla = 'Borrado';
+      $statusTabla = 'BORRADO';
 
       $delete = new Carrefour();
       $delete->setId($id);
@@ -157,29 +156,97 @@ class CarrefourController
 
   public function repoblar()
   {
+    if (isset($_GET)) {
+      $carrefour = new Carrefour();
+      $idRegistro = $_GET['id'];
+      $nombre = 'Carrefour';
+      $descripcionTabla = "Mercado Familiar Verpa";
+      $gastosVerpa = 300.00;
+      $diaCorte = '21 de Cada Mes';
+      $statu = 'PENDIENTE';
+      $carrefour->setName($nombre);
+      $carrefour->setDescriptionTable($descripcionTabla);
+      $carrefour->setSpendingVerpa($gastosVerpa);
+      $carrefour->setCurtDay($diaCorte);
+      $carrefour->setStatus($statu);
+      $carrefour->setIdRegister($idRegistro);
+      // Guardar
+      $guardarPiensoRocco = $carrefour->save();
 
-    echo 'hola';
-    // $idRegistro = $_GET['id'];
-    // $getAllCarrefoursRepoblar = new Carrefour();
-    // $getAllCarrefoursRepoblar->setId($idRegistro);
+      if($guardarPiensoRocco){
+        $idRegistro = $_GET['id'];
+        $nombre = 'Carrefour';
+        $descripcionTabla = "Pienso Rocco";
+        $gastosVerpa = 40.00;
+        $diaCorte = '21 de Cada Mes';
+        $statu = 'PENDIENTE';
+        $carrefour->setName($nombre);
+        $carrefour->setDescriptionTable($descripcionTabla);
+        $carrefour->setSpendingVerpa($gastosVerpa);
+        $carrefour->setCurtDay($diaCorte);
+        $carrefour->setStatus($statu);
+        $carrefour->setIdRegister($idRegistro);
+        // Guardar
+        $guardarNexfli = $carrefour->save();
 
-    // $_SESSION['getAllCarrefourRepoblar'] = $getAllCarrefoursRepoblar->getRegister();
+        if($guardarNexfli){
+          $idRegistro = $_GET['id'];
+          $nombre = 'Carrefour';
+          $descripcionTabla = "Nexfli";
+          $gastosVerpa = 4.99;
+          $diaCorte = '2 de Cada Mes';
+          $statu = 'PENDIENTE';
+          $carrefour->setName($nombre);
+          $carrefour->setDescriptionTable($descripcionTabla);
+          $carrefour->setSpendingVerpa($gastosVerpa);
+          $carrefour->setCurtDay($diaCorte);
+          $carrefour->setStatus($statu);
+          $carrefour->setIdRegister($idRegistro);
+          // Guardar
+          $guardarSpotify = $carrefour->save();
 
-    // while ($getAllCarrefourR = $_SESSION['getAllCarrefourRepoblar']->fetch_object()) {
-    //   echo $_SESSION['getAllCarrefourR'] = $getAllCarrefourR->description_table, "<br>";
-    // }
+          if($guardarSpotify){
+            $idRegistro = $_GET['id'];
+            $nombre = 'Carrefour';
+            $descripcionTabla = "Spotify";
+            $gastosVerpa = 3.49;
+            $diaCorte = '26 de Cada Mes';
+            $statu = 'PENDIENTE';
+            $carrefour->setName($nombre);
+            $carrefour->setDescriptionTable($descripcionTabla);
+            $carrefour->setSpendingVerpa($gastosVerpa);
+            $carrefour->setCurtDay($diaCorte);
+            $carrefour->setStatus($statu);
+            $carrefour->setIdRegister($idRegistro);
+            // Guardar
+            $guardarMercadoPadresPablo = $carrefour->save();
 
-    //   // echo $_SESSION['nameCarrefourR'] = $getAllCarrefourR->name_carrefour, "<br>" ;
-    //   echo $_SESSION['descripcionCarrefourR'] = $_SESSION['getAllCarrefourR']->description_table, "<br>";
-    //   echo $_SESSION['spendingCarrefourR'] = $_SESSION['getAllCarrefourR']->spending_verpa, "<br>";
-    //   echo $_SESSION['curtDayCarrefourR'] = $_SESSION['getAllCarrefourR']->curt_day, "<br>";
-    //   echo $_SESSION['statusCarrefourR'] = $_SESSION['getAllCarrefourR']->status, "<br>";
+            if($guardarMercadoPadresPablo){
+              $idRegistro = $_GET['id'];
+              $nombre = 'Carrefour';
+              $descripcionTabla = "Mercado Padres Pablo";
+              $gastosVerpa = 130.00;
+              $diaCorte = '21 de Cada Mes';
+              $statu = 'PENDIENTE';
+              $carrefour->setName($nombre);
+              $carrefour->setDescriptionTable($descripcionTabla);
+              $carrefour->setSpendingVerpa($gastosVerpa);
+              $carrefour->setCurtDay($diaCorte);
+              $carrefour->setStatus($statu);
+              $carrefour->setIdRegister($idRegistro);
+              // Guardar
+              $guardarFin = $carrefour->save();
 
-    //  /*  echo $getAllCarrefourR->name_carrefour;
-    //   echo $getAllCarrefourR->description_table;
-    //   echo $getAllCarrefourR->spending_verpa;
-    //   echo  $getAllCarrefourR->curt_day;
-    //   echo $getAllCarrefourR->status; */
- 
+              if($guardarFin){
+                $statusTabla = 'REPOBLADO';
+                $_SESSION['nombreTabla'] = $nombre;
+                $_SESSION["mensajeTabla"] = "Tabla <strong>$nombre</strong> se ha <strong>$statusTabla</strong> con EXITO";
+              }
+            }
+          }
+        }
+      }
+    }
+    header("Location:" . base_url . 'Registro/historial&id=' . $idRegistro);
   }
 }

@@ -4,73 +4,6 @@ require_once 'model/registro.php';
 
 class DeudasController
 {
-
-  /*   public function ajax()
-  {
-
-    if (isset($_POST)) {
-
-      $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : false;
-      $idRegistro = isset($_POST['idRegistro']) ? $_POST['idRegistro'] : false;
-      $descripcionTabla = isset($_POST['descripcion']) ? $_POST['descripcion'] : false;
-      $gastosVerpa = isset($_POST['gasto']) ? $_POST['gasto'] : false;
-      $diaCorte = isset($_POST['diaCorte']) ? $_POST['diaCorte'] : false;
-      $status =  isset($_POST['status']) ? $_POST['status'] : false;
-      for ($i = 0; $i < count($status); $i++) {
-        $statu = $status[$i];
-      };
-
-      $form = array();
-      $form["nombre"] = $nombre;
-      $form["descripcionTabla"] = $descripcionTabla;
-      $form["gastosVerpa"] = $gastosVerpa;
-      $form["diaCorte"] = $diaCorte;
-      $form["statu"] = $statu;
-      $form["idRegistro"] = $idRegistro;
-
-      //Reclutar Errores 
-      $errores = array();
-
-      //validar Datos
-      if (empty(trim($descripcionTabla)) || is_numeric($descripcionTabla) || preg_match("/[0-9]/",  $descripcionTabla)) {
-        $errores["descripcion"] = "el formato de mes no es el correcto!";
-      }
-
-      if (empty(trim($gastosVerpa)) || !is_numeric($gastosVerpa) || !preg_match("/[0-9]/", $gastosVerpa)) {
-        $errores["$gastosVerpa"] = "el formato no es el correcto!";
-      }
-
-      if (empty(trim($diaCorte))) {
-        $errores["$diaCorte"] = "el formato no es el correcto! dia corte";
-      }
-
-      //Instancio 
-      $guardar = new Deuda();
-      $guardar->setName($nombre);
-      $guardar->setDescriptionTable($descripcionTabla);
-      $guardar->setSpendingVerpa($gastosVerpa);
-      $guardar->setCurtDay($diaCorte);
-      $guardar->setStatus($statu);
-      $guardar->setIdRegister($idRegistro);
-
-      if (count($errores) == 0) {
-
-        $guardar = $guardar->save();
-
-        if ($guardar) {
-          $_SESSION["register"] = "complete";
-          $_SESSION["mensaje"] = "Registro Guardado con Exito!";                    
-        } else {
-          $_SESSION["register"] = "failed";
-          $_SESSION["form"] = $form;
-        }
-      } else {
-        $_SESSION["errores"] = $errores;
-        $_SESSION["form"] = $form;
-      }
-    }
-  } */
-
   public function crear()
   {
     if (isset($_POST)) {
@@ -83,7 +16,7 @@ class DeudasController
       for ($i = 0; $i < count($status); $i++) {
         $statu = $status[$i];
       };
-      $statusTabla = 'Guardado';
+      $statusTabla = 'GUARDADO';
 
       //Repoblar Formulario
       $form = array();
@@ -153,7 +86,7 @@ class DeudasController
         $statu = $status[$i];
       };
       $nombre = 'Deudas';
-      $statusTabla = 'Editado';
+      $statusTabla = 'EDITADO';
 
       //Repoblar Formulario
       $form = array();
@@ -211,7 +144,7 @@ class DeudasController
       $id = isset($_POST['id']) ? $_POST['id'] : false;
       $idRegistro = isset($_POST['idRegistro']) ? $_POST['idRegistro'] : false;
       $nombre = 'Deudas';
-      $statusTabla = 'Borrado';
+      $statusTabla = 'BORRADO';
 
       $delete = new Deuda();
       $delete->setId($id);
@@ -223,5 +156,67 @@ class DeudasController
         header("Location:" . base_url . 'Registro/historial&id=' . $idRegistro);
       }
     }
+  }
+
+  public function repoblar()
+  {
+    if (isset($_GET)) {
+      $Deuda = new Deuda();
+      $idRegistro = $_GET['id'];
+      $nombre = 'Deudas';
+      $descripcionTabla = "Moto Cuota";
+      $gastosVerpa = 58.28;
+      $diaCorte = '5 de Cada Mes';
+      $statu = 'PENDIENTE';
+      $Deuda->setName($nombre);
+      $Deuda->setDescriptionTable($descripcionTabla);
+      $Deuda->setSpendingVerpa($gastosVerpa);
+      $Deuda->setCurtDay($diaCorte);
+      $Deuda->setStatus($statu);
+      $Deuda->setIdRegister($idRegistro);
+      // Guardar
+      $guardarBbvaVerpa = $Deuda->save();
+
+      if($guardarBbvaVerpa){
+        $idRegistro = $_GET['id'];
+        $nombre = 'Deudas';
+        $descripcionTabla = "Prestamo BBVA Pablo y Vero";
+        $gastosVerpa = 64.90;
+        $diaCorte = '1 de Cada Mes';
+        $statu = 'PENDIENTE';
+        $Deuda->setName($nombre);
+        $Deuda->setDescriptionTable($descripcionTabla);
+        $Deuda->setSpendingVerpa($gastosVerpa);
+        $Deuda->setCurtDay($diaCorte);
+        $Deuda->setStatus($statu);
+        $Deuda->setIdRegister($idRegistro);
+        // Guardar
+        $guardarTdcVero = $Deuda->save();
+
+        if($guardarTdcVero){
+          $idRegistro = $_GET['id'];
+          $nombre = 'Deudas';
+          $descripcionTabla = "Tarjeta de BBVA de Vero";
+          $gastosVerpa = 58.28;
+          $diaCorte = '5 de Cada Mes';
+          $statu = 'PENDIENTE';
+          $Deuda->setName($nombre);
+          $Deuda->setDescriptionTable($descripcionTabla);
+          $Deuda->setSpendingVerpa($gastosVerpa);
+          $Deuda->setCurtDay($diaCorte);
+          $Deuda->setStatus($statu);
+          $Deuda->setIdRegister($idRegistro);
+          // Guardar
+          $guardarFin = $Deuda->save();
+
+          if($guardarFin){
+            $statusTabla = 'REPOBLADO';
+            $_SESSION['nombreTabla'] = $nombre;
+            $_SESSION["mensajeTabla"] = "Tabla <strong>$nombre</strong> se ha <strong>$statusTabla</strong> con EXITO";
+          }
+        }
+      }
+    }
+    header("Location:" . base_url . 'Registro/historial&id=' . $idRegistro);
   }
 }

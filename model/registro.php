@@ -121,6 +121,13 @@ class Registro
     return $IdRegister;
   }
 
+  public function getAllRegister()
+  {
+    $sql = "SELECT * FROM register where id={$this->id}";
+    $IdRegister = $this->db->query($sql);
+    return $IdRegister;
+  }
+
   public function validarFecha()
   {
   

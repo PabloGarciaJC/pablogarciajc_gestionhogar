@@ -11,36 +11,8 @@
           </button>
         </div>
         <div class="col-md-6 grid_2">
-          <a href="" id="repoblar" class="btn btn-info">Repoblar</a>
+          <a href="<?= base_url ?>Carrefour/repoblar&id=<?= $idRegisterC ?>" id="repoblar" class="btn btn-info">Repoblar</a>
         </div>
-
-
-        <script>
-          $("#repoblar").click(function() {
-            url = "<?= base_url ?>Carrefour/repoblar&id=<?= $idRegisterC ?>";
-
-         
-
-          $.ajax({
-              url: url,
-              type: "GET",  
-              data: parametros         
-            })
-            .done(function(data) {
-              $("#respuesta").html(data);
-            })
-            .fail(function(data) {
-              alert("error");
-            })
-            .always(function(data) {
-              alert("complete");
-            });
-
-          });
-        </script>
-
-
-
         <!-- Inicio Modal -->
         <div class="btn-group">
           <div class="modal fade" id="btnInsertarC" tabindex="-1" role="dialog" aria-labelledby="btnInsertarC" aria-hidden="true">
@@ -154,7 +126,7 @@
               </div>
             </td>
             <td>
-              <button type="button" class="btn btn-primary" onclick="editarCarrefour('<?= $getAllCarrefour->id ?>','<?= $getAllCarrefour->description_table ?>', '<?= $getAllCarrefour->spending_verpa ?>', '<?= $getAllCarrefour->curt_day ?>', '<?= $getAllCarrefour->status ?>', '<?= $getAllCarrefour->id_register ?>')" data-toggle="modal" data-target="#btnEditarC">
+              <button type="button" class="btn btn" style = "background:rgb(18 72 165); color:#ffffff" onclick="editarCarrefour('<?= $getAllCarrefour->id ?>','<?= $getAllCarrefour->description_table ?>', '<?= $getAllCarrefour->spending_verpa ?>', '<?= $getAllCarrefour->curt_day ?>', '<?= $getAllCarrefour->status ?>', '<?= $getAllCarrefour->id_register ?>')" data-toggle="modal" data-target="#btnEditarC">
                 Editar<div class="btn-group">
               </button>
               <!-- Inicio Modal -->
@@ -214,7 +186,6 @@
               </div>
               <!-- //Fin Modal -->
             </td>
-
             <td>
               <div class="btn-group">
                 <button type="button" class="btn btn-warning" onclick="eliminarCarrefour('<?= $getAllCarrefour->id ?>','<?= $getAllCarrefour->description_table ?>','<?= $getAllCarrefour->id_register ?>')" data-toggle="modal" data-target="#btnEliminarC">
@@ -263,8 +234,6 @@
       <?php endif; ?>
       </tbody>
     </table>
-
-
   </div>
 </div>
 
