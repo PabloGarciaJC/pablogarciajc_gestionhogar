@@ -2,7 +2,7 @@
   <div class="col_3">
     <div class="col-md-3 widget widget1">
       <div class="r3_counter_box">
-        <!-- Nueva Funcionalidad -->
+        <!-- Nueva Funcionalidad -->        
         <button type="button" data-toggle="modal" onclick="editarRegistro('<?= $RegistrosTodos->id ?>', '<?= $RegistrosTodos->income_veronica ?>', '<?= $RegistrosTodos->income_pablo ?>', '<?= $RegistrosTodos->income_extra ?>','<?= $RegistrosTodos->saving_verpa ?>', '<?= $RegistrosTodos->month ?>', '<?= $RegistrosTodos->year ?>')" data-target="#btneditarRegistro">
           Editar<div class="btn-group">
         </button>
