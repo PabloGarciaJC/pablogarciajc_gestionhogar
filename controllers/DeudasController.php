@@ -165,7 +165,7 @@ class DeudasController
       $idRegistro = $_GET['id'];
       $nombre = 'Deudas';
       $descripcionTabla = "Moto Cuota";
-      $gastosVerpa = 58.28;
+      $gastosVerpa = 69.36;
       $diaCorte = '5 de Cada Mes';
       $statu = 'PENDIENTE';
       $Deuda->setName($nombre);
@@ -197,7 +197,7 @@ class DeudasController
           $idRegistro = $_GET['id'];
           $nombre = 'Deudas';
           $descripcionTabla = "Tarjeta de BBVA de Vero";
-          $gastosVerpa = 58.28;
+          $gastosVerpa = 59.00;
           $diaCorte = '5 de Cada Mes';
           $statu = 'PENDIENTE';
           $Deuda->setName($nombre);
@@ -208,6 +208,21 @@ class DeudasController
           $Deuda->setIdRegister($idRegistro);
           // Guardar
           $guardarFin = $Deuda->save();
+
+          if($guardarFin){
+            $idRegistro = $_GET['id'];
+            $nombre = 'Deudas';
+            $descripcionTabla = "Seguro dental Vero";
+            $gastosVerpa = 11.00;
+            $diaCorte = 'Ultimo de Cada Mes';
+            $statu = 'PENDIENTE';
+            $Deuda->setName($nombre);
+            $Deuda->setDescriptionTable($descripcionTabla);
+            $Deuda->setSpendingVerpa($gastosVerpa);
+            $Deuda->setCurtDay($diaCorte);
+            $Deuda->setStatus($statu);
+            $Deuda->setIdRegister($idRegistro);
+          }
 
           if($guardarFin){
             $statusTabla = 'REPOBLADO';

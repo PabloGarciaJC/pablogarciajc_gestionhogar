@@ -164,7 +164,7 @@ class ServiciosController
       $idRegistro = $_GET['id'];
       $nombre = 'Servicio';
       $descripcionTabla = "Alquiler Piso";
-      $gastosVerpa = 550.00;
+      $gastosVerpa = 650.000;
       $diaCorte = 'Ultimo de Cada Mes';
       $statu = 'PENDIENTE';
       $servicio->setName($nombre);
@@ -179,8 +179,8 @@ class ServiciosController
       if ($guardarAgua) {
         $idRegistro = $_GET['id'];
         $nombre = 'Servicios';
-        $descripcionTabla = "Agua";
-        $gastosVerpa = 00.00;
+        $descripcionTabla = "Gas";
+        $gastosVerpa = 22.00;
         $diaCorte = 'Cada 2 Meses';
         $statu = 'PENDIENTE';
         $servicio->setName($nombre);
@@ -196,7 +196,7 @@ class ServiciosController
           $idRegistro = $_GET['id'];
           $nombre = 'Servicios';
           $descripcionTabla = "Luz";
-          $gastosVerpa = 75.00;
+          $gastosVerpa = 65.00;
           $diaCorte = '30 de Cada Mes';
           $statu = 'PENDIENTE';
           $servicio->setName($nombre);

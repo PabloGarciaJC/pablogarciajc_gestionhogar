@@ -154,6 +154,7 @@ class CarrefourController
     }
   }
 
+
   public function repoblar()
   {
     if (isset($_GET)) {
@@ -161,7 +162,7 @@ class CarrefourController
       $idRegistro = $_GET['id'];
       $nombre = 'Carrefour';
       $descripcionTabla = "Mercado Familiar Verpa";
-      $gastosVerpa = 300.00;
+      $gastosVerpa = 400.00;
       $diaCorte = '21 de Cada Mes';
       $statu = 'PENDIENTE';
       $carrefour->setName($nombre);
@@ -225,7 +226,7 @@ class CarrefourController
               $idRegistro = $_GET['id'];
               $nombre = 'Carrefour';
               $descripcionTabla = "Mercado Padres Pablo";
-              $gastosVerpa = 130.00;
+              $gastosVerpa = 100.00;
               $diaCorte = '21 de Cada Mes';
               $statu = 'PENDIENTE';
               $carrefour->setName($nombre);

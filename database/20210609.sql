@@ -1,3 +1,6 @@
+create database pablogarciajc_gestionhogar;
+use pablogarciajc_gestionhogar;
+
 create TABLE register (
 id INT AUTO_INCREMENT,
 income_veronica FLOAT(10,2),
