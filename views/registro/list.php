@@ -106,7 +106,7 @@
               <td><?= $getRegisterAll->saving_verpa ?></td>
               <td><?= $getRegisterAll->month ?></td>
               <td><?= $getRegisterAll->year ?></td>
-              <td><a href="<?= base_url ?>Registro/historial&id=<?= $getRegisterAll->id ?>">Crear</a></td>
+              <td><a href="<?= base_url ?>Registro/historial&id=<?= $getRegisterAll->id ?>">Ver</a></td>
               <td>
                 <button type="button" class="btn btn" style = "background:rgb(18 72 165); color:#ffffff" onclick="editarRegistro('<?= $getRegisterAll->id ?>', '<?= $getRegisterAll->income_veronica ?>', '<?= $getRegisterAll->income_pablo ?>', '<?= $getRegisterAll->income_extra ?>','<?= $getRegisterAll->saving_verpa ?>', '<?= $getRegisterAll->month ?>', '<?= $getRegisterAll->year ?>')" data-toggle="modal" data-target="#btneditar">
                   Editar<div class="btn-group">
