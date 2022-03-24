@@ -71,7 +71,10 @@ class DeudasController
         header("Location:" . base_url . 'Registro/historial&id=' . $idRegistro);
       }
     }
+
   }
+  
+ 
 
   public function editar()
   {
@@ -235,3 +238,5 @@ class DeudasController
     header("Location:" . base_url . 'Registro/historial&id=' . $idRegistro);
   }
 }
+
+

@@ -224,7 +224,7 @@ class ServiciosController
             // Guardar
             $guardarPaginaWeb = $servicio->save();
 
-            if($guardarPaginaWeb){
+            if ($guardarPaginaWeb) {
               $idRegistro = $_GET['id'];
               $nombre = 'Servicios';
               $descripcionTabla = "Pagina Web Pablo Garcia";
@@ -240,12 +240,11 @@ class ServiciosController
               // Guardar
               $guardarFin = $servicio->save();
 
-              if($guardarFin){
+              if ($guardarFin) {
                 $statusTabla = 'REPOBLADO';
                 $_SESSION['nombreTabla'] = $nombre;
                 $_SESSION["mensajeTabla"] = "Tabla <strong>$nombre</strong> se ha <strong>$statusTabla</strong> con EXITO";
               }
-
             }
           }
         }
@@ -254,3 +253,4 @@ class ServiciosController
     header("Location:" . base_url . 'Registro/historial&id=' . $idRegistro);
   }
 }
+

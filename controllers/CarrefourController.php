@@ -72,6 +72,7 @@ class CarrefourController
         header("Location:" . base_url . 'Registro/historial&id=' . $idRegistro);
       }
     }
+    
   }
 
   public function editar()
