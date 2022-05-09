@@ -9,10 +9,8 @@ class Database {
         return $db;
     }
 }
-
 /* $tes = new Database();
 $prueba = $tes->conexion(); 
 var_dump($prueba); 
  */
-
 ?>

@@ -9,6 +9,8 @@ class Registro
   private $savingVerpa;
   private $mes;
   private $year;
+  private $buscador;
+
   private $db;
 
   // CONSTRUCTOR
@@ -53,6 +55,11 @@ class Registro
     $this->year = $year;
   }
 
+  public function setBuscador($buscador)
+  {
+    $this->buscador = $buscador;
+  }
+
   // GETTER
   public function getId()
   {
@@ -89,64 +96,15 @@ class Registro
     return $this->year;
   }
 
+  public function getBuscador()
+  {
+    return $this->buscador;
+  }
 
   //CODIGO SQL 
-  public function getAll()
+
+  public function guardar()
   {
-    $sql = "SELECT * FROM register ORDER BY id DESC";
-    $register = $this->db->query($sql);
-    return $register;
-  }
-
-  public function sumIngresos()
-  {
-    $sql = "SELECT sum(income_veronica + income_pablo + income_extra) as total, saving_verpa from register where id={$this->id};";
-    $sumIngresos = $this->db->query($sql);
-    return $sumIngresos->fetch_object();
-  }
-
-  public function getAllNamesCarrefour()
-  {
-    $sql = "SELECT r.id, c.name_carrefour from register r 
-    INNER JOIN carrefour c ON r.id=c.id_register ORDER BY id DESC LIMIT 1;";
-    $allNameC = $this->db->query($sql);
-    return $allNameC;
-  }
-
-  public function getIdRegister()
-  {
-    $sql = "SELECT id FROM register where id={$this->id}";
-    $IdRegister = $this->db->query($sql);
-
-    return $IdRegister;
-  }
-
-  public function getAllRegister()
-  {
-    $sql = "SELECT * FROM register where id={$this->id}";
-    $IdRegister = $this->db->query($sql);
-    return $IdRegister;
-  }
-
-  public function validarFecha()
-  {
-  
-    $sql = "SELECT month,year FROM register where month='{$this->mes}' and year={$this->year}";
-    $IdRegister = $this->db->query($sql);
-
-  /*   echo $sql;
-    echo "</br>";
-    echo $this->db->error;
-    die(); */
-
-    return $IdRegister;
-  }
-
-
-  public function save()
-  {
-    $result = false;
-
     $sql = "INSERT INTO register (income_veronica,
                                   income_pablo,
                                   income_extra, 
@@ -163,21 +121,39 @@ class Registro
 
     $save = $this->db->query($sql);
 
-    /*    echo $sql;
-    echo "</br>";
-    echo $this->db->error;
-    die();  */
-
     if ($save) {
-      $result = true;
+      echo 1;
     }
-    return $result;
   }
+
+  public function listar($ultimoRegistro, $mostrarRegistros)
+  {
+    $sql = "SELECT * FROM register r ";
+
+    if ($this->getBuscador() == '') {
+
+      $sql .= "ORDER BY r.id DESC ";
+    } else {
+
+      $sql .= "WHERE (r.income_veronica LIKE '%{$this->getBuscador()}%' OR ";
+      $sql .= "r.income_pablo LIKE '%{$this->getBuscador()}%' OR ";
+      $sql .= "r.income_extra LIKE '%{$this->getBuscador()}%' OR ";
+      $sql .= "r.saving_verpa LIKE '%{$this->getBuscador()}%' OR ";
+      $sql .= "r.month LIKE '%{$this->getBuscador()}%' OR ";
+      $sql .= "r.year LIKE '%{$this->getBuscador()}%')";
+      $sql .= "ORDER BY r.id DESC ";
+    }
+
+    $sql .= "LIMIT $ultimoRegistro, $mostrarRegistros;";
+    
+    $listar = $this->db->query($sql);
+
+    return $listar;
+  }
+
 
   public function edit()
   {
-    $result = false;
-
     $sql = "UPDATE register SET "
       . "income_veronica= {$this->ingresoVeronica}, "
       . "income_pablo= {$this->ingresoPablo}, "
@@ -189,31 +165,44 @@ class Registro
 
     $save = $this->db->query($sql);
 
-      /* echo $sql;
-    echo "</br>";
-    echo $this->db->error;
-    die() */;
-
     if ($save) {
-      $result = true;
+      echo 1;
     }
-    return $result;
   }
 
   public function delete()
   {
-    $result = false;
     $sql = "DELETE FROM register WHERE id= {$this->id}";
     $delete = $this->db->query($sql);
 
-    /*  echo $sql;
-    echo "</br>";
-    echo $this->db->error;
-    die();  */
-
     if ($delete) {
-      $result = true;
+      echo 1;
     }
-    return $result;
+  }
+
+
+  public function conteoRegistros()
+  {
+    $sql = "SELECT count(r.id) as 'registrosTotales' FROM register r ";
+
+    if ($this->getBuscador() == '') {
+
+      $sql .= "ORDER BY r.id DESC;";
+    } else {
+
+      $sql .= "WHERE (r.income_veronica LIKE '%{$this->getBuscador()}%' OR ";
+      $sql .= "r.income_pablo LIKE '%{$this->getBuscador()}%' OR ";
+      $sql .= "r.income_extra LIKE '%{$this->getBuscador()}%' OR ";
+      $sql .= "r.saving_verpa LIKE '%{$this->getBuscador()}%' OR ";
+      $sql .= "r.month LIKE '%{$this->getBuscador()}%' OR ";
+      $sql .= "r.year LIKE '%{$this->getBuscador()}%')";
+      $sql .= "ORDER BY r.id DESC;";
+    }
+
+    $listar = $this->db->query($sql);
+    $obtener = $listar->fetch_object();
+    $conteo = $obtener->registrosTotales;
+
+    return $conteo;
   }
 }

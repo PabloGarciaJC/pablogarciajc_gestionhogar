@@ -13,7 +13,7 @@ html, body{
   	font-family: 'Roboto', sans-serif;
     font-size: 100%;
   	background:#000;
-  	overflow-x: hidden;
+  	/* overflow-x: hidden; */
 }
 body a{
 	transition:0.5s all;
@@ -242,7 +242,7 @@ i.nav_icon {
   margin-right:6px;
 }
 .sidebar ul li a{
-  color: #999;
+  color: rgb(255, 255, 255);
   font-size:14px;
 }
 .form-control {
@@ -852,7 +852,8 @@ i.dollar1{
 }
 /*-- graphs --*/
 .graphs{
-  padding: 2em 1em;
+  /* padding: 2em 1em; */
+  padding: 1em;
   background: #f2f4f8;
   font-family: 'Roboto', sans-serif;
 }
