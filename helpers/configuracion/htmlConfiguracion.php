@@ -16,7 +16,7 @@ class htmlConfiguracion
     $conteoRegistros = $configuracion->conteoRegistros();
 
     // Paginador 2: Muestro el total de Registros que se van a Mostrar
-    $mostrarRegistros = 15;
+    $mostrarRegistros = 25;
 
     // Paginador 3: Capturo la Pagina Actual => Para Limitar Los Registros, Primer Parametro
     $ultimoRegistro = ($paginaActual - 1) * $mostrarRegistros;
