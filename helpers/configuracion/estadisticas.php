@@ -8,14 +8,17 @@ class estadisticas
   {
     $configuracion = new Configuracion;
     $configuracion->setIdRegistro($obtenerIdRegistro);
+    
     $sumaIngresos = $configuracion->sumaIngresos();
 
-    $deudasGlobales = ($configuracion->deudasGlobales()) == 0 ? 0 : $configuracion->deudasGlobales();
+    $deudasGlobales = ($configuracion->deudasGlobales()) == 0 ? 0 : $configuracion->deudasGlobales();  
+
     $dineroRestante = $sumaIngresos->ingresosTotales - $deudasGlobales;  
 
     $gastosCarrefour = ($configuracion->gastosCarrefour()) == 0 ? 0 : $configuracion->gastosCarrefour();
 
     $gastosServicios = ($configuracion->gastosServicios()) == 0 ? 0 : $configuracion->gastosServicios();
+
     $gastosDeudas = ($configuracion->gastosDeudas()) == 0 ? 0 : $configuracion->gastosDeudas();
     
     echo  "<script>document.getElementById('ingresosTotales').innerHTML=  $sumaIngresos->ingresosTotales + ' €'</script>";

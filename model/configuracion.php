@@ -210,7 +210,7 @@ class Configuracion
 
   public function deudasGlobales()
   {
-    $sql = "SELECT SUM(c.Gastos) as deudasGlobales FROM register r INNER JOIN configuracion c ON r.id = c.idRegister WHERE c.idRegister = {$this->getIdRegistro()}";
+    $sql = "SELECT SUM(c.Gastos) as deudasGlobales FROM register r INNER JOIN configuracion c ON r.id = c.idRegister WHERE c.idRegister = {$this->getIdRegistro()} or rol = 0 ";
     $deudasGlobales = $this->db->query($sql);
     $obtener = $deudasGlobales->fetch_object();
     return $obtener->deudasGlobales;
@@ -218,7 +218,7 @@ class Configuracion
 
   public function gastosCarrefour()
   {
-    $sql = "SELECT SUM(c.Gastos) as gastosCarrefour FROM configuracion c where c.idRegister = {$this->getIdRegistro()} and c.nombre= 'Carrefour'";
+    $sql = "SELECT SUM(c.Gastos) as gastosCarrefour FROM configuracion c where (c.idRegister = {$this->getIdRegistro()} or rol = 0) and c.nombre= 'Carrefour'";
     $gastosCarrefour = $this->db->query($sql);
     $obtener = $gastosCarrefour->fetch_object();
     return $obtener->gastosCarrefour;
@@ -226,7 +226,7 @@ class Configuracion
 
   public function gastosServicios()
   {
-    $sql = "SELECT SUM(c.Gastos) as gastosServicios FROM configuracion c where c.idRegister = {$this->getIdRegistro()} and c.nombre= 'Servicios'";
+    $sql = "SELECT SUM(c.Gastos) as gastosServicios FROM configuracion c where (c.idRegister = {$this->getIdRegistro()} or rol = 0) and c.nombre= 'Servicios'";
     $gastosServicios = $this->db->query($sql);
     $obtener = $gastosServicios->fetch_object();
     return $obtener->gastosServicios;
@@ -234,7 +234,7 @@ class Configuracion
 
   public function gastosDeudas()
   {
-    $sql = "SELECT SUM(c.Gastos) as gastosDeudas FROM configuracion c where c.idRegister = {$this->getIdRegistro()} and c.nombre= 'Deudas'";
+    $sql = "SELECT SUM(c.Gastos) as gastosDeudas FROM configuracion c where (c.idRegister = {$this->getIdRegistro()} or rol = 0) and c.nombre= 'Deudas'";
     $gastosDeudas = $this->db->query($sql);
     $obtener = $gastosDeudas->fetch_object();
     return $obtener->gastosDeudas;

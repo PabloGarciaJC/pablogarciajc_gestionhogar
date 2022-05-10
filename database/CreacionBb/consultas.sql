@@ -22,3 +22,9 @@ SELECT * FROM configuracion c WHERE (idRegister = 3 or rol = 0);
 
  SELECT * FROM configuracion c WHERE idRegister = 1 ORDER BY FIELD (nombre,'Carrefour','Servicios','Deudas') ASC;
 
+ SELECT SUM(c.Gastos) as gastosDeudas FROM configuracion c where c.idRegister = 23 or rol = 0 and c.nombre= 'Deudas';
+
+SELECT * FROM configuracion c;
+
+  SELECT * from configuracion c where (idRegister = 19 or rol = 0) and c.nombre= 'servicios';
+
