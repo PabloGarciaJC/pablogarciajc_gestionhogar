@@ -6,10 +6,36 @@ SELECT SUM(c.Gastos) FROM register r INNER JOIN configuracion c ON r.id = c.idRe
 
 SELECT SUM(c.Gastos) FROM configuracion c where c.idRegister = 633 and c.nombre= 'Carrefour';
 
-DELETE FROM configuracion c where c.id = 10;
+SELECT * FROM configuracion c where c.idRegister = 2;
 
 
-DELETE FROM configuracion where id = 13 and rol = 1;
+INSERT INTO configuracion (nombre,descripcion,gastos,fechaCorte,status,idRegister,rol) VALUES ('Carrefour','mercado padres pablo pepe', 130.00, '21 de casa mes', 'PAGADO', 2, 1);
+
+
+SELECT * FROM configuracion where idRegister = 2;
+
+
+SELECT c.nombre, c.descripcion FROM register r INNER JOIN configuracion c ON r.id = c.idRegister WHERE c.idRegister = 2;
+
+SELECT
+c.id,
+r.id,  
+income_veronica,
+income_pablo,
+income_extra,
+saving_verpa,
+month,
+year,
+nombre, 
+descripcion,
+gastos,
+fechaCorte,
+status,
+idRegister
+FROM register r INNER JOIN configuracion c ON r.id = c.idRegister WHERE c.idRegister = 2;
+
+
+
 
 SELECT * FROM configuracion WHERE id= 11 AND rol = 1;
 

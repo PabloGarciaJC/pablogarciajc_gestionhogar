@@ -16,6 +16,7 @@ if (buscadorConfig) {
 };
 
 function obtenerConfigTabla(imputBuscadorConfig, paginaActualConfig) {
+
   // Obtengo el id Registro POR GET
   let obtenerIdRegistroBuscador = document.getElementById('obtenerIdRegistro');
 

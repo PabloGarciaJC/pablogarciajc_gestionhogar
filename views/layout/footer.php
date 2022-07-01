@@ -33,6 +33,9 @@
  <script src="<?= base_url ?>assets/js/repositorio/configuracion/editar.js"></script>
  <script src="<?= base_url ?>assets/js/repositorio/configuracion/eliminar.js"></script>
  <script src="<?= base_url ?>assets/js/repositorio/configuracion/editarRegistroConfig.js"></script>
+ <script src="<?= base_url ?>assets/js/repositorio/configuracion/repoblar.js"></script>
+
+
  
 
 

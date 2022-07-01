@@ -1,11 +1,15 @@
 <!-- Tabla Registro -->
 <div class="bs-example4" data-example-id="simple-responsive-table" style="text-align: center;">
+  <!-- Buscador -->
+  <input type="search" placeholder="Busca ingresos del mes.. Aqui !" id="buscadorRegistro" />
+  <!-- /Buscador -->
   <div class="table-responsive" id="tablaRegistro">
   </div>
 </div>
 
 <!-- Modal Crear -->
-<div class="modal fade" id="modalCrearRegistro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalCrearRegistro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -16,11 +20,13 @@
       </div>
       <div class="modal-body">
 
-        <form id="crearFormularioRegistro" class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate">
+        <form id="crearFormularioRegistro"
+          class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern"
+          novalidate="novalidate">
           <fieldset>
 
             <div id="crearRegistroPeticionAjax" style="display: none;"></div>
-        
+
             <div class="form-group" id="claseCrearIngresoVeronicaR" style="padding-bottom: 14px;">
               <label class="control-label navbar-left"><strong>Ingresos Veronica</strong></label>
               <input type="text" class="form-control1 ng-invalid ng-invalid-required" id="crearIngresoVeronicaR">
@@ -73,7 +79,8 @@
 
 <!-- Modal Editar -->
 <div class="btn-group">
-  <div class="modal fade" id="modalEditarRegistro" tabindex="-1" role="dialog" aria-labelledby="btneditarTitle" aria-hidden="true">
+  <div class="modal fade" id="modalEditarRegistro" tabindex="-1" role="dialog" aria-labelledby="btneditarTitle"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -84,7 +91,9 @@
         </div>
         <!-- Formulario Inicial -->
         <div class="modal-body">
-          <form id="editarFormularioRegistro" class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate">
+          <form id="editarFormularioRegistro"
+            class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern"
+            novalidate="novalidate">
             <fieldset>
 
               <div id="editarRegistroPeticionAjax" style="display:none"></div>
@@ -144,7 +153,8 @@
 
 <!-- Modal Eliminar -->
 <div class="btn-group">
-  <div class="modal fade" id="modalEliminarRegistro" tabindex="-1" role="dialog" aria-labelledby="btneliminarTitle" aria-hidden="true">
+  <div class="modal fade" id="modalEliminarRegistro" tabindex="-1" role="dialog" aria-labelledby="btneliminarTitle"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -154,7 +164,9 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="" method="POST" class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern" novalidate="novalidate" ng-submit="submit()">
+          <form action="" method="POST"
+            class="form-floating ng-pristine ng-invalid ng-invalid-required ng-valid-email ng-valid-url ng-valid-pattern"
+            novalidate="novalidate" ng-submit="submit()">
             <fieldset>
 
               <input type="hidden" class="form-control1 ng-invalid ng-invalid-required" id="eliminarIdRegistro">
@@ -179,7 +191,7 @@
               <button type="submit" class="btn btn-warning" id="btnEliminarRegistro">Eliminar</button>
             </div>
           </form>
-          
+
         </div>
       </div>
     </div>
