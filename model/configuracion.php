@@ -119,7 +119,6 @@ class Configuracion
         if ($this->getBuscador() == '') {
 
             $sql .= "WHERE idRegister = {$this->getIdRegistro()} or rol = 0 ORDER BY FIELD (nombre,'Carrefour','Servicios','Deudas') ASC ";
-
         } else {
 
             $sql .= "WHERE (c.nombre LIKE '%{$this->getBuscador()}%' OR ";
@@ -128,7 +127,6 @@ class Configuracion
             $sql .= "c.fechaCorte LIKE '%{$this->getBuscador()}%' OR ";
             $sql .= "c.status LIKE '%{$this->getBuscador()}%') AND idRegister = {$this->getIdRegistro()} or rol = 0 ";
             $sql .= "ORDER BY c.id DESC ";
-
         }
 
         $sql .= "LIMIT $ultimoRegistro, $mostrarRegistros;";
@@ -211,7 +209,6 @@ class Configuracion
         $IdRegister = $this->db->query($sql);
 
         return $IdRegister->fetch_object();
-
     }
 
     public function sumaIngresos()
@@ -257,22 +254,25 @@ class Configuracion
     public function repoblarTabla()
     {
         $sql = "INSERT INTO configuracion (nombre,descripcion,gastos,fechaCorte,status,idRegister,rol) VALUES
-        ('Carrefour','mercado padres pablo pepe', 130.00, '21 de casa mes', 'PENDIENTE', {$this->getIdRegistro()}, 1),
-        ('vegeta','bloques pepe', 130.00, '21 de casa mes', 'PENDIENTE', {$this->getIdRegistro()}, 1),
-        ('goku','bloques pepe', 130.00, '21 de casa mes', 'PENDIENTE', {$this->getIdRegistro()}, 1),
-        ('jiren','bloques pepe', 130.00, '21 de casa mes', 'PENDIENTE', {$this->getIdRegistro()}, 1),
-        ('krilin','bloques pepe', 130.00, '21 de casa mes', 'PENDIENTE', {$this->getIdRegistro()}, 1),
-        ('papachito','bloques pepe', 130.00, '21 de casa mes', 'PENDIENTE', {$this->getIdRegistro()}, 1),
-        ('macdonal','bloques pepe', 130.00, '21 de casa mes', 'PENDIENTE', {$this->getIdRegistro()}, 1),
-        ('programacion','bloques pepe', 130.00, '21 de casa mes', 'PENDIENTE', {$this->getIdRegistro()}, 1),
-        ('pc','bloques pepe', 130.00, '21 de casa mes', 'PENDIENTE', {$this->getIdRegistro()}, 1);";
-       
+        ('Carrefour','Mercado Familiar', 407.00, '21 de cada mes', 'PENDIENTE', {$this->getIdRegistro()}, 1),
+        ('Carrefour','Sitio Web Pablo', 10.00, '15 de casa mes', 'PENDIENTE', {$this->getIdRegistro()}, 1),
+        ('Carrefour','Netflix', 5.49 , '21 de casa mes', 'PENDIENTE', {$this->getIdRegistro()}, 1),
+        ('Carrefour','HBO', 3.99, '5 de cada mes', 'PENDIENTE', {$this->getIdRegistro()}, 1),
+        ('Carrefour','Mercado Padres Pablo', 130.00, '21 de casa mes', 'PENDIENTE', {$this->getIdRegistro()}, 1),
+        ('Carrefour','Pienso de rocco', 53.60, '21 de casa mes', 'PENDIENTE', {$this->getIdRegistro()}, 1),
+        ('Servicios','Fibra - Yoigo', 57.09, '21 de casa mes', 'PENDIENTE', {$this->getIdRegistro()}, 1),
+        ('Servicios','Seguro de Dientes - Vero', 20.40, '21 de casa mes', 'PENDIENTE', {$this->getIdRegistro()}, 1),   
+        ('Servicios','Luz', 27.15, '21 de casa mes', 'PENDIENTE', {$this->getIdRegistro()}, 1),
+        ('Servicios','Alguiler', 650.00, '21 de casa mes', 'PENDIENTE', {$this->getIdRegistro()}, 1),
+        ('Deudas','Cuota de la Moto', 69.36, 'Ultimo de mes', 'PENDIENTE', {$this->getIdRegistro()}, 1),
+        ('Deudas','BBVA targeta de Vero', 59.00, 'Ultimo de mes', 'PENDIENTE', {$this->getIdRegistro()}, 1),
+        ('Deudas','Prestamo de 4000 mil', 64.90 , 'Ultimo de mes', 'PENDIENTE', {$this->getIdRegistro()}, 1),
+        ('Deudas','Credito del Erte', 50.19, 'Ultimo de mes', 'PENDIENTE', {$this->getIdRegistro()}, 1);";
+
         $repoblacion = $this->db->query($sql);
 
         if ($repoblacion) {
             echo 1;
         }
-        
     }
-
 }

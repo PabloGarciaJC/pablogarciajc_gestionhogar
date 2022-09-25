@@ -437,38 +437,80 @@
               <tr>
                 <th scope="row">Carrefour</th>
                 <td>Mercado Familiar</td>
-                <td>400</td>
+                <td>407.00</td>
+                <td>15 de casa mes</td>
+              </tr>
+              <tr>
+                <th scope="row">Carrefour</th>
+                <td>Sitio Web Pablo</td>
+                <td>10.00 </td>
+                <td>15 de cada Mes</td>
+              </tr>
+              <tr>
+                <th scope="row">Carrefour</th>
+                <td>Netflix</td>
+                <td>5.49</td>
                 <td>21 de cada Mes</td>
               </tr>
               <tr>
                 <th scope="row">Carrefour</th>
-                <td>Spotify Vero</td>
-                <td>5</td>
-                <td>21 de cada Mes</td>
+                <td>HBO</td>
+                <td>3.99</td>
+                <td>21 de casa mes</td>
+              </tr>
+              <tr>
+                <th scope="row">Carrefour</th>
+                <td>Mercado Padres Pablo</td>
+                <td>130.00</td>
+                <td>21 de casa mes</td>
               </tr>
               <tr>
                 <th scope="row">Servicios</th>
-                <td>Alquiler</td>
-                <td>50</td>
+                <td>Fibra - Yoigo</td>
+                <td>57.09</td>
+                <td>21 de casa mes</td>
+              </tr>
+              <tr>
+                <th scope="row">Servicios</th>
+                <td>Seguro de Dientes - Vero</td>
+                <td>20.40 </td>
+                <td>21 de casa mes</td>
+              </tr>
+              <tr>
+                <th scope="row">Servicios</th>
+                <td>Luz</td>
+                <td>27.15</td>
+                <td>21 de casa mes</td>
+              </tr>
+              <tr>
+                <th scope="row">Servicios</th>
+                <td>Alguiler</td>
+                <td>650.00</td>
                 <td>Finales de mes</td>
               </tr>
               <tr>
                 <th scope="row">Servicios</th>
-                <td>Fibra</td>
-                <td>50</td>
-                <td>Finales de mes</td>
+                <td>Cuota de la Moto</td>
+                <td>69.36</td>
+                <td>Ultimo de mes</td>
               </tr>
               <tr>
                 <th scope="row">Servicios</th>
-                <td>Electricidad</td>
-                <td>50</td>
-                <td>Finales de mes</td>
+                <td>BBVA targeta de Vero</td>
+                <td>59.00</td>
+                <td>Ultimo de mes</td>
               </tr>
               <tr>
                 <th scope="row">Servicios</th>
-                <td>Gas</td>
-                <td>23</td>
-                <td>Finales de mes</td>
+                <td>Prestamo de 4000 mil</td>
+                <td>64.90</td>
+                <td>Ultimo de mes</td>
+              </tr>
+              <tr>
+                <th scope="row">Servicios</th>
+                <td>Credito del Erte</td>
+                <td>50.19</td>
+                <td>Ultimo de mes</td>
               </tr>
             </tbody>
           </table>
