@@ -10,15 +10,23 @@
 
 ## Funcionaliades
 
-* La aplicación web de E-commerce permite a los usuarios autenticados la adquisición de productos y la gestión de la plataforma. Los usuarios pueden editar su información personal, incluyendo nombre, apellidos, imagen, etc.
+**Modulo 1:** Registro de ingresos mensuales
 
-* Existen dos roles en la plataforma: Admin y Visitante. El Admin tiene acceso a la gestión de productos y categorías, incluyendo la creación, edición, eliminación y publicación de productos y categorías. Además, puede ver una lista de todas las ordenes realizadas y cambiar el estado de una orden.
+* Permite registrar los ingresos de manera eficiente
+* Permite actualizar y eliminar los registros de ingresos
+* Tiene un buscador para filtrar los registros
+* Incluye un paginador para organizar los registros
 
-* El Visitante, por otro lado, puede agregar productos al carrito de compras, editar las cantidades de los productos en el carrito y ver una lista de sus pedidos. Además, pueden ver la lista completa de productos y catálogo disponibles, realizar búsquedas y filtraciones de productos por nombre, marca, capacidad, precio y ofertas, y ver los detalles de un producto individual.
+**Modulo 2:** Gestión de ingresos y deudas
 
-* Los usuarios no autenticados (visitantes) pueden navegar el e-commerce, ver y buscar productos, pero para comprar deben crear una cuenta y autenticarse.
+* Brinda una interfaz accesible para gestionar gastos y deudas
+* Permite a los usuarios crear nuevos gastos
+* Tiene un buscador para filtrar registros
+* Permite repoblar la tabla con datos predefinidos
 
-* La aplicación cuenta con validación de datos para los usuarios y productos/categorías. Los usuarios deben tener una dirección de correo electrónico válida y única, mientras que los productos deben tener un nombre, marca, capacidad, precio, foto y ofertas. Además, los pedidos deben pertenecer a un usuario y tener una línea de orden con número de pedido, coste, fecha y estado.
+**Objetivo:**
+
+Ofrecer una experiencia intuitiva y sencilla para la gestión financiera personal.
 
 ## Tecnologías
 
