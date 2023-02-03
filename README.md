@@ -8,9 +8,7 @@
 | ![GestionHogar_1](https://pablogarciajc.com/wp-content/uploads/2022/09/GestionHogar_1.png) | ![GestionHogar_2](https://pablogarciajc.com/wp-content/uploads/2022/09/GestionHogar_2.png)|
 |-----------|-----------|
 
-</br>
-
-# Funcionaliades
+## Funcionaliades
 
 * La aplicación web de E-commerce permite a los usuarios autenticados la adquisición de productos y la gestión de la plataforma. Los usuarios pueden editar su información personal, incluyendo nombre, apellidos, imagen, etc.
 
@@ -34,8 +32,6 @@ La aplicación web se desarrolla con un enfoque en mejorar la experiencia de usu
 
 ### Requisitos
 
-</br>
-
 * Descargar un servidor local, recomiendo (Wampserver64).
 * Descagar el Proyecto en Github.
 
@@ -51,9 +47,7 @@ La aplicación web se desarrolla con un enfoque en mejorar la experiencia de usu
 
 5. En un navegador, vaya a "http://localhost/portafolios/pablogarciajc_gestionhogar/" para acceder a su proyecto.
 
-</br>
-
-# Contáctame para más información o preguntas
+## Contáctame para más información o preguntas
 
 | Redes Sociales  | Desarrollador de Aplicaciones Web |
 | ------------- | ------------- |
