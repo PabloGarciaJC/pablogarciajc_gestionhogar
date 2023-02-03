@@ -24,13 +24,13 @@
 
 </br>
 
-# Tecnologías
+## Tecnologías
 
 La aplicación web se desarrolla con un enfoque en mejorar la experiencia de usuario en el **front-end** con la utilización de una plantilla, Bootstrap v4.0.0, JavaScript, Jquery y Ajax. En el **back-end**, se utiliza PHP 7.3.5 como lenguaje de programación y MySQL como base de datos, y se aplica la programación orientada a objetos y una arquitectura MVC para una gestión eficiente de los datos y la lógica de negocio. En general, la aplicación busca ofrecer una experiencia fluida y eficiente para los usuarios y una gestión organizada y robusta de la información.
 
 </br>
 
-# Instalación
+## Instalación
 
 ### Requisitos
 
@@ -40,8 +40,6 @@ La aplicación web se desarrolla con un enfoque en mejorar la experiencia de usu
 * Descagar el Proyecto en Github.
 
 ### Configuración
-
-</br>
 
 1. Verifique que WAMP esté instalado y en ejecución en su computadora.
 
