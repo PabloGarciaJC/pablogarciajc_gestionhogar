@@ -43,7 +43,7 @@ La aplicación web se desarrolla con un enfoque en mejorar la experiencia de usu
 
 1. Verifique que WAMP esté instalado y en ejecución en su computadora.
 
-2. Cree una carpeta en el escritorio llamada "portafolios" y extraiga el proyecto que previamente descargó de su cuenta de Github. Verifique que el nombre de la carpeta sea "pablogarciajc_gestionhogar" y copie y pegue dicha carpeta en la carpeta "www" dentro del directorio de instalación de WAMP.
+2. Cree una carpeta en el escritorio llamada "portafolios" y extraiga el proyecto que previamente descargó de Github. Verifique que el nombre de la carpeta sea "pablogarciajc_gestionhogar" y copie y pegue dicha carpeta en la carpeta "www" dentro del directorio de instalación de WAMP.
 
 3. Cree una nueva base de datos en phpMyAdmin: con el nombre de "pablogarciajc_gestionhogar".
 
