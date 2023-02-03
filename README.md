@@ -10,12 +10,12 @@
 
 ## Funcionaliades
 
-**Modulo 1:** Registro de ingresos mensuales
+**El Primer Módulo:** Registro de ingresos mensuales
 
 * Permite registrar, actualizar y eliminar los ingresos de manera eficiente.
 * Tiene una herramienta de búsqueda para filtrar registros y un paginador para organizarlos.
 
-**Modulo 2:** Gestión de ingresos y deudas
+**Segundo Módulo:** Gestión de ingresos y deudas
 
 * Ofrece una interfaz accesible para la gestión de gastos y deudas.
 * Permite registrar, actualizar y eliminar gastos de manera eficiente.
