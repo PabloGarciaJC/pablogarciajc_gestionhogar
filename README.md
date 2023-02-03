@@ -10,7 +10,7 @@
 
 ## Funcionaliades
 
-La aplicación posee dos componentes: El registro de ingresos periódicos y La administración de ingresos y deudas.
+La aplicación posee dos módulos: El registro de ingresos periódicos y La administración de ingresos y deudas.
 
 **El Primer Módulo:** El registro de ingresos periódicos.
 
