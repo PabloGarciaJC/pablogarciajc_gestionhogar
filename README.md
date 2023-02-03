@@ -10,6 +10,8 @@
 
 ## Funcionaliades
 
+La aplicación cuenta con dos módulos: Registro de ingresos mensuales y Gestión de ingresos y deudas
+
 **El Primer Módulo:** Registro de ingresos mensuales
 
 * Permite registrar, actualizar y eliminar los ingresos de manera eficiente.
