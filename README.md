@@ -12,21 +12,19 @@
 
 **Modulo 1:** Registro de ingresos mensuales
 
-* Permite registrar los ingresos de manera eficiente
-* Permite actualizar y eliminar los registros de ingresos
-* Tiene un buscador para filtrar los registros
-* Incluye un paginador para organizar los registros
+* Permite registrar, actualizar y eliminar los ingresos de manera eficiente.
+* Tiene una herramienta de búsqueda para filtrar registros y un paginador para organizarlos.
 
 **Modulo 2:** Gestión de ingresos y deudas
 
-* Brinda una interfaz accesible para gestionar gastos y deudas
-* Permite a los usuarios crear nuevos gastos
-* Tiene un buscador para filtrar registros
-* Permite repoblar la tabla con datos predefinidos
+* Ofrece una interfaz accesible para la gestión de gastos y deudas.
+* Permite registrar, actualizar y eliminar gastos de manera eficiente.
+* Tiene una herramienta de búsqueda para filtrar los registros.
+* Ofrece la posibilidad de poblar la tabla con datos preestablecidos para evitar tener que escribir los datos cada mes.
 
 **Objetivo:**
 
-Ofrecer una experiencia intuitiva y sencilla para la gestión financiera personal.
+Mi objetivo es brindar una experiencia intuitiva y sencilla para la administración financiera personal.
 
 ## Tecnologías
 
