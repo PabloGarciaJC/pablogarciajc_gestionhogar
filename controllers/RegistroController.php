@@ -88,15 +88,5 @@ class RegistroController
       echo $eliminado;
     }
   }
-
-  // $datos["arrayRegistrosPaginador"] = [];
-
-  // if ($listado->num_rows > 0) {
-
-  //   while ($registros = $listado->fetch_assoc()) {
-  //     $datos["arrayRegistrosPaginador"][] = $registros;
-  //   }
-  // }
-  // echo json_encode($datos, JSON_UNESCAPED_UNICODE);
-
+  
 }

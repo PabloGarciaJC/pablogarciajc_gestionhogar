@@ -1,5 +1,3 @@
-// Obtengo el id Registro
-// let obtenerIdRegistro = document.getElementById('obtenerIdRegistro');
 
 //Capturo los elementos input por Id
 let inputCrearNombreConfig = document.getElementById('crearNombreConfig');
@@ -45,7 +43,6 @@ function ajaxCrearConfig() {
       gastosConfig: inputCrearGastosConfig.value,
       fechaCorteConfig: inputCrearFechaCorteConfig.value,
       statusCrearConfig: inputCrearStatusCrearConfig.value,
-      obtenerIdRegistro: obtenerIdRegistro.value
     },
   }).done(function (respuestaPeticion) {
     $('#configuracionPeticionAjax').html(respuestaPeticion);

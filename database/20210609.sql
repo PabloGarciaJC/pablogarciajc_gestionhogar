@@ -13,7 +13,7 @@ constraint UQ_month_year UNIQUE (month,year),
 constraint PK_register PRIMARY KEY (id)
 )Engine=InnoDB;
 
-create TABLE configuracion (
+create TABLE historial (
 id INT AUTO_INCREMENT,
 nombre VARCHAR (50) NULL,
 descripcion VARCHAR (50) NULL,
@@ -24,6 +24,18 @@ idRegister INT NULL,
 rol INT,
 constraint PK_configuracion PRIMARY KEY (id),
 constraint FK_register_d FOREIGN KEY (idRegister) REFERENCES register(id)
+)Engine=InnoDB;
+
+
+create TABLE configuracion (
+id INT AUTO_INCREMENT,
+nombre VARCHAR (50) NULL,
+descripcion VARCHAR (50) NULL,
+gastos DEC(10,2),
+fechaCorte VARCHAR (50),
+status VARCHAR (50) NULL,
+rol INT,
+constraint PK_historial PRIMARY KEY (id)
 )Engine=InnoDB;
 
 

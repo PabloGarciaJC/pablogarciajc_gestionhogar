@@ -13,32 +13,32 @@ let inputRepoblarId = document.getElementById('repoblarId');
 if (btnRepoblar) {
 
   btnRepoblar.addEventListener("click", (e) => {
+
     e.preventDefault();
 
     $.ajax({
       type: 'POST',
-      url: baseUrl + 'Configuracion/repoblar',
+      url: baseUrl + 'historial/repoblar',
       data: {
-        repoblar: inputRepoblarId.value
+        idRegistro: inputRepoblarId.value
       },
 
     })
       .done(function (respuestaPeticion) {
+
         $('#respuestaPeticionRepoblar').html(respuestaPeticion);
 
-        if (respuestaPeticion == 1) {
-          let paginaActualConfig = 1;
-          obtenerConfigTabla('', paginaActualConfig);
-          Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Repoblado Correctamente',
-            showConfirmButton: false,
-            timer: 800
-          })
-          $("#modalRepoblar").modal('hide');
-        }
-
+        let paginaActualConfig = 1;
+        obtenerHistorialTabla('', paginaActualConfig);
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Repoblado Correctamente',
+          showConfirmButton: false,
+          timer: 800
+        })
+        $("#modalRepoblar").modal('hide');
+        
       })
       .fail(function () {
         console.log('error');

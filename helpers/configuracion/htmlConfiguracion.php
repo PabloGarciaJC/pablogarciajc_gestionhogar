@@ -3,20 +3,19 @@
 class htmlConfiguracion
 {
 
-    public static function obtenerTodos($imputBuscador, $paginaActual, $obtenerIdRegistro, $repoblar)
+    public static function obtenerTodos($imputBuscador, $paginaActual)
     {
         $configuracion = new Configuracion();
         $configuracion->setBuscador($imputBuscador);
-        $configuracion->setIdRegistro($obtenerIdRegistro);
-
+        
         // Estadisticas Banner
-        estadisticas::banner($obtenerIdRegistro);
+        estadisticasConfig::bannerConfig();
 
         // Paginador 1: Extraer el Conteo de Registros de la Base de Datos
         $conteoRegistros = $configuracion->conteoRegistros();
 
         // Paginador 2: Muestro el total de Registros que se van a Mostrar
-        $mostrarRegistros = 25;
+        $mostrarRegistros = 20;
 
         // Paginador 3: Capturo la Pagina Actual => Para Limitar Los Registros, Primer Parametro
         $ultimoRegistro = ($paginaActual - 1) * $mostrarRegistros;
@@ -33,51 +32,48 @@ class htmlConfiguracion
         // Obtener Lista
         $obtenerLista = $configuracion->listar($ultimoRegistro, $mostrarRegistros);
 
-        // Obtener por id Register
-        $obtenerRegistro = $configuracion->obtenerRegistroByIdRegister();
+        // echo '<div class="graphs">';
+        // echo '<div class="col_3">';
+        // echo '<div class="col-md-3 widget widget1">';
+        // echo '<div class="r3_counter_box">';
+        // echo '<div class="text-center" style="margin-top: 9px;">';
 
-        echo '<div class="graphs">';
-        echo '<div class="col_3">';
-        echo '<div class="col-md-3 widget widget1">';
-        echo '<div class="r3_counter_box">';
-        echo '<div class="text-center" style="margin-top: 9px;">';
+        // echo '<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalCrearConfiguracion">&#128421 Crear Filas</button>';
+        // echo '</div>';
+        // echo '</div>';
+        // echo '</div>';
 
-        echo '<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalCrearConfiguracion">&#128421 Crear Historial</button>';
-        echo '</div>';
-        echo '</div>';
-        echo '</div>';
+        // if ($obtenerLista->num_rows > 0) {
+        //     echo '<div class="col-md-3 widget widget1">';
+        //     echo '<div class="r3_counter_box">';
+        //     echo '<div class="text-center" style="margin-top: 9px;">';
+        //     echo '<a href="" id="" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalEditarRegistroC"
+        // onclick="editarRegistroConfig(' . $obtenerIdRegistro . ', ' . $obtenerRegistro->income_veronica . ', ' . $obtenerRegistro->income_pablo . ', ' . $obtenerRegistro->income_extra . ', ' . $obtenerRegistro->saving_verpa . ', \'' . $obtenerRegistro->month . '\', ' . $obtenerRegistro->year . ', ' . $paginaActual . ')">&#128240;  Editar Ingresos</a>';
+        //     echo '</div>';
+        //     echo '</div>';
+        //     echo '</div>';
+        // }
 
-        if ($obtenerLista->num_rows > 0) {
-            echo '<div class="col-md-3 widget widget1">';
-            echo '<div class="r3_counter_box">';
-            echo '<div class="text-center" style="margin-top: 9px;">';
-            echo '<a href="" id="" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalEditarRegistroC"
-        onclick="editarRegistroConfig(' . $obtenerIdRegistro . ', ' . $obtenerRegistro->income_veronica . ', ' . $obtenerRegistro->income_pablo . ', ' . $obtenerRegistro->income_extra . ', ' . $obtenerRegistro->saving_verpa . ', \'' . $obtenerRegistro->month . '\', ' . $obtenerRegistro->year . ', ' . $paginaActual . ')">&#128240;  Editar Ingresos</a>';
-            echo '</div>';
-            echo '</div>';
-            echo '</div>';
-        }
+        // echo '<div class="col-md-3 widget widget1">';
+        // echo '<div class="r3_counter_box">';
+        // echo '<div class="text-center" style="margin-top: 9px;">';
 
-        echo '<div class="col-md-3 widget widget1">';
-        echo '<div class="r3_counter_box">';
-        echo '<div class="text-center" style="margin-top: 9px;">';
+        // echo '<a href="" id="" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#modalRepoblar" onclick="repoblar(' . $obtenerIdRegistro . ')">&#128452; Repoblar Tabla</a>';
+        // echo '</div>';
+        // echo '</div>';
+        // echo '</div>';
 
-        echo '<a href="" id="" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#modalRepoblar" onclick="repoblar(' . $obtenerIdRegistro . ')">&#128452; Repoblar Tabla</a>';
-        echo '</div>';
-        echo '</div>';
-        echo '</div>';
+        // echo '<div class="col-md-3 widget widget1">';
+        // echo '<div class="r3_counter_box">';
+        // echo '<div class="text-center" style="margin-top: 9px;">';
+        // echo '<a href="' . base_url . '" class="btn btn-info btn-lg">&#11013 Volver</a>';
+        // echo '</div>';
+        // echo '</div>';
+        // echo '</div>';
 
-        echo '<div class="col-md-3 widget widget1">';
-        echo '<div class="r3_counter_box">';
-        echo '<div class="text-center" style="margin-top: 9px;">';
-        echo '<a href="' . base_url . '" class="btn btn-info btn-lg">&#11013 Volver</a>';
-        echo '</div>';
-        echo '</div>';
-        echo '</div>';
-
-        echo '<div class="clearfix"> </div>';
-        echo '</div>';
-        echo '</div>';
+        // echo '<div class="clearfix"> </div>';
+        // echo '</div>';
+        // echo '</div>';
        
         echo '<table class="table table-bordered">';
         echo '<thead>';
@@ -102,7 +98,6 @@ class htmlConfiguracion
 
                 echo '<tr>';
 
-                // echo '<td>' . $listarRegistros->id . '</td>';
                 echo '<td><strong>' . $listarRegistros->nombre . '</strong></td>';
                 echo '<td>' . $listarRegistros->descripcion . '</td>';
                 echo '<td><strong>' . $listarRegistros->gastos . '  &#8364;</strong></td>'; 

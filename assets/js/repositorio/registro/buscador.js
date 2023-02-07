@@ -8,9 +8,10 @@ obtenerRegistrosTabla('', paginaActual);
 let buscadorRegistro = document.getElementById('buscadorRegistro');
 
 //Capturo el Buscador a tiempo Real
+
 if (buscadorRegistro) {
-  buscadorRegistro.addEventListener('keyup', (event) => {
-    let imputBuscadorRegistro = event.path[0].value;
+  buscadorRegistro.addEventListener("keyup", function (e) {
+    let imputBuscadorRegistro = buscadorRegistro.value;
     obtenerRegistrosTabla(imputBuscadorRegistro, paginaActual);
   });
 };

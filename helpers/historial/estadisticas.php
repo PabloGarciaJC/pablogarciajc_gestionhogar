@@ -1,26 +1,28 @@
 <?php
-require_once 'model/configuracion.php';
+require_once 'model/Historial.php';
 
 class estadisticas
 {
 
-  public static function banner($obtenerIdRegistro)
+  public static function banner($idRegistro)
   {
-    $configuracion = new Configuracion;
-    $configuracion->setIdRegistro($obtenerIdRegistro);
+    $historial = new historial;
+    $historial->setIdRegistro($idRegistro);
     
-    $sumaIngresos = $configuracion->sumaIngresos();
+    $sumaIngresos = $historial->sumaIngresos();
 
-    $deudasGlobales = ($configuracion->deudasGlobales()) == 0 ? 0 : $configuracion->deudasGlobales();  
-
+    $deudasGlobales = ($historial->deudasGlobales()) == 0 ? 0 : $historial->deudasGlobales(); 
+    
     $dineroRestante = $sumaIngresos->ingresosTotales - $deudasGlobales;  
 
-    $gastosCarrefour = ($configuracion->gastosCarrefour()) == 0 ? 0 : $configuracion->gastosCarrefour();
+    $gastosCarrefour = ($historial->gastosCarrefour()) == 0 ? 0 : $historial->gastosCarrefour();
 
-    $gastosServicios = ($configuracion->gastosServicios()) == 0 ? 0 : $configuracion->gastosServicios();
+    $gastosServicios = ($historial->gastosServicios()) == 0 ? 0 : $historial->gastosServicios();
 
-    $gastosDeudas = ($configuracion->gastosDeudas()) == 0 ? 0 : $configuracion->gastosDeudas();
-    
+    $gastosDeudas = ($historial->gastosDeudas()) == 0 ? 0 : $historial->gastosDeudas();
+
+    $gastosPendiente = ($historial->gastosPendiente()) == 0 ? 0 : $historial->gastosPendiente();
+
     echo  "<script>document.getElementById('ingresosTotales').innerHTML=  $sumaIngresos->ingresosTotales + ' €'</script>";
     echo  "<script>document.getElementById('ahorros').innerHTML= $sumaIngresos->ahorros + ' €'</script>";
     echo  "<script>document.getElementById('deudasGlobales').innerHTML= $deudasGlobales + ' €'</script>";
@@ -28,5 +30,8 @@ class estadisticas
     echo  "<script>document.getElementById('gastosCarrefour').innerHTML= $gastosCarrefour + ' €'</script>";
     echo  "<script>document.getElementById('gastosServicios').innerHTML= $gastosServicios + ' €'</script>";
     echo  "<script>document.getElementById('gastosDeudas').innerHTML= $gastosDeudas + ' €'</script>";
+    echo  "<script>document.getElementById('deudasPorPagar').innerHTML= $gastosPendiente + ' €'</script>";
+    
   }
+
 }

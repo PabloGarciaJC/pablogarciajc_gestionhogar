@@ -9,9 +9,6 @@ function eliminarConfig(idConfig, nombreConfig, descripcionConfig, gastosConfig,
   $('#eliminarPaginaActualConfig').val(eliminarPaginaActualConfig);
 }
 
-// Obtengo el id Registro POR GET
-let obtenerIdEliminarRegistro = document.getElementById('obtenerIdRegistro');
-
 //Capturo los elementos por id
 let btnEliminarConfiguracion = document.getElementById('btnEliminarConfiguracion');
 let eliminarIdConfig = document.getElementById('eliminarIdConfig');
@@ -26,7 +23,6 @@ if (btnEliminarConfiguracion) {
       url: baseUrl + 'Configuracion/eliminar',
       data: {
         idEliminarConfig: eliminarIdConfig.value,
-        obtenerIdRegistro: obtenerIdEliminarRegistro.value
       },
     }).done(function (respuestaPeticion) {
       

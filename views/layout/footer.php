@@ -17,9 +17,10 @@
  <!-- Funciones Generales -->
  <script src="<?= base_url ?>assets/js/helpers/generales/eventosInputs.js"></script>
 
- <!-- Funciones Registros -->
+ <!-- Funciones  -->
  <script src="<?= base_url ?>assets/js/helpers/registro/validacionesRegistro.js"></script>
  <script src="<?= base_url ?>assets/js/helpers/configuracion/validacionesConfig.js"></script>
+ <script src="<?= base_url ?>assets/js/helpers/historial/validacionesHistorial.js"></script>
 
  <!-- Registro -->
  <script src="<?= base_url ?>assets/js/repositorio/registro/crear.js"></script>
@@ -33,10 +34,11 @@
  <script src="<?= base_url ?>assets/js/repositorio/configuracion/editar.js"></script>
  <script src="<?= base_url ?>assets/js/repositorio/configuracion/eliminar.js"></script>
  <script src="<?= base_url ?>assets/js/repositorio/configuracion/editarRegistroConfig.js"></script>
- <script src="<?= base_url ?>assets/js/repositorio/configuracion/repoblar.js"></script>
 
-
- 
-
-
-
+ <!-- Historial -->
+ <script src="<?= base_url ?>assets/js/repositorio/historial/crear.js"></script>
+ <script src="<?= base_url ?>assets/js/repositorio/historial/buscador.js"></script>
+<script src="<?= base_url ?>assets/js/repositorio/historial/editar.js"></script>
+ <script src="<?= base_url ?>assets/js/repositorio/historial/eliminar.js"></script>
+ <script src="<?= base_url ?>assets/js/repositorio/historial/repoblar.js"></script> 
+ <!-- <script src="<?= base_url ?>assets/js/repositorio/configuracion/editarRegistroConfig.js"></script> -->

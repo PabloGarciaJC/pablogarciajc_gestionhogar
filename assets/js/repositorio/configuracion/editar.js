@@ -9,9 +9,6 @@ function editarConfig(idConfig, nombreConfig, descripcionConfig, gastosConfig, f
   $('#editPaginaActualConfig').val(editPaginaActualConfig);
 }
 
-// Obtengo el id Registro POR GET
-let obtenerIdEditRegistro = document.getElementById('obtenerIdRegistro');
-
 //Capturo los elementos por id
 let idConfig = document.getElementById('idConfig');
 let editNombreConfig = document.getElementById('editNombreConfig');
@@ -38,13 +35,13 @@ if (btnEditarConfiguracion) {
     let editValidacionFormConfig = validacionesConfig(editDescripcionConfig, editGastosConfig, editFechaCorteConfig);
 
     if (editValidacionFormConfig == true) {
-      ajaxEditarConfig(idConfig, editNombreConfig, editDescripcionConfig, editGastosConfig, editFechaCorteConfig, statusEditConfig, editPaginaActualConfig, obtenerIdEditRegistro);
+      ajaxEditarConfig(idConfig, editNombreConfig, editDescripcionConfig, editGastosConfig, editFechaCorteConfig, statusEditConfig, editPaginaActualConfig);
     }
 
   });
 }
 
-function ajaxEditarConfig(idConfig, editNombreConfig, editDescripcionConfig, editGastosConfig, editFechaCorteConfig, statusEditConfig, editPaginaActualConfig, obtenerIdEditRegistro) {
+function ajaxEditarConfig(idConfig, editNombreConfig, editDescripcionConfig, editGastosConfig, editFechaCorteConfig, statusEditConfig, editPaginaActualConfig) {
   $.ajax({
     type: 'POST',
     url: baseUrl + 'Configuracion/editar',
@@ -55,7 +52,6 @@ function ajaxEditarConfig(idConfig, editNombreConfig, editDescripcionConfig, edi
       gastosConfig: editGastosConfig.value,
       fechaCorteConfig: editFechaCorteConfig.value,
       statusConfig: statusEditConfig.value,
-      obtenerIdRegistro: obtenerIdEditRegistro.value
     },
   }).done(function (respuestaPeticion) {
     $('#editarConfiguracionPeticionAjax').html(respuestaPeticion);

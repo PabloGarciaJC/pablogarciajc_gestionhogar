@@ -7,7 +7,9 @@ require_once 'helpers/registro/htmlRegistro.php';
 require_once 'helpers/registro/validaciones.php';
 require_once 'helpers/configuracion/htmlConfiguracion.php';
 require_once 'helpers/configuracion/validacionesConfig.php';
-require_once 'helpers/configuracion/estadisticas.php';
+require_once 'helpers/historial/estadisticas.php';
+require_once 'helpers/configuracion/estadisticasConfig.php';
+require_once 'helpers/historial/htmlHistorial.php';
 
 //Controlador Frontal
 if(isset($_GET['controller'])){

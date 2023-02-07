@@ -9,35 +9,31 @@ let buscadorConfig = document.getElementById('buscadorConfiguracion');
 
 // Capturo el Buscador a tiempo Real
 if (buscadorConfig) {
-  buscadorConfig.addEventListener('keyup', (event) => {
-    let imputBuscadorConfig = event.path[0].value;
+
+  buscadorConfig.addEventListener("keyup", function (e) {
+    let imputBuscadorConfig = buscadorConfig.value;
     obtenerConfigTabla(imputBuscadorConfig, paginaActualConfig);
   });
 };
 
 function obtenerConfigTabla(imputBuscadorConfig, paginaActualConfig) {
 
-  // Obtengo el id Registro POR GET
-  let obtenerIdRegistroBuscador = document.getElementById('obtenerIdRegistro');
-
-  if (obtenerIdRegistroBuscador) {
-    $.ajax({
-      type: 'POST',
-      url: baseUrl + 'Configuracion/buscador',
-      data: {
-        imputBuscadorConfig: imputBuscadorConfig,
-        paginaActualConfig: paginaActualConfig,
-        obtenerIdRegistro: obtenerIdRegistroBuscador.value
-      },
+  $.ajax({
+    type: 'POST',
+    url: baseUrl + 'Configuracion/buscador',
+    data: {
+      imputBuscadorConfig: imputBuscadorConfig,
+      paginaActualConfig: paginaActualConfig,
+    },
+  })
+    .done(function (respuestaPeticion) {
+      $('#tablaConfiguracion').html(respuestaPeticion);
     })
-      .done(function (respuestaPeticion) {
-        $('#tablaConfiguracion').html(respuestaPeticion);
-      })
-      .fail(function () {
-        console.log('error');
-      })
-      .always(function () {
-        console.log('completo');
-      });
-  }
+    .fail(function () {
+      console.log('error');
+    })
+    .always(function () {
+      console.log('completo');
+    });
+
 }
