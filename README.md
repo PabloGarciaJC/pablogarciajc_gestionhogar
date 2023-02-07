@@ -27,7 +27,7 @@ La aplicación cuenta con tres módulos: registro de ingresos periódicos, admin
 
 * Permite llenar la tabla con datos preestablecidos para facilitar la gestión de información y evitar tener que ingresar los datos manualmente cada mes.
 
-**Objetivo:**
+## Objetivo
 
 Mi objetivo es brindar una experiencia intuitiva y sencilla para la administración financiera personal.
 
