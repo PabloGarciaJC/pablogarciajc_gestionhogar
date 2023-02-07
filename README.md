@@ -22,7 +22,6 @@ La aplicación cuenta con tres módulos: registro de ingresos periódicos, admin
 * Ofrece una interfaz accesible para la gestión de gastos y deudas.
 * Permite registrar, actualizar y eliminar gastos de manera eficiente.
 * Tiene una herramienta de búsqueda para filtrar los registros.
-* Ofrece la posibilidad de poblar la tabla con datos preestablecidos para evitar tener que escribir los datos cada mes.
 
 **Tercer Módulo:** Población de tablas.
 
