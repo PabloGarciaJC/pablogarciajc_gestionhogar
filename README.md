@@ -10,7 +10,7 @@
 
 ## Funcionaliades
 
-La aplicación posee dos módulos: El registro de ingresos periódicos y La administración de ingresos y deudas.
+La aplicación cuenta con tres módulos: registro de ingresos periódicos, administración de ingresos y deudas, y población de tablas.
 
 **El Primer Módulo:** El registro de ingresos periódicos.
 
@@ -23,6 +23,10 @@ La aplicación posee dos módulos: El registro de ingresos periódicos y La admi
 * Permite registrar, actualizar y eliminar gastos de manera eficiente.
 * Tiene una herramienta de búsqueda para filtrar los registros.
 * Ofrece la posibilidad de poblar la tabla con datos preestablecidos para evitar tener que escribir los datos cada mes.
+
+**Tercer Módulo:** Población de tablas.
+
+* Permite llenar la tabla con datos preestablecidos para facilitar la gestión de información y evitar tener que ingresar los datos manualmente cada mes.
 
 **Objetivo:**
 
