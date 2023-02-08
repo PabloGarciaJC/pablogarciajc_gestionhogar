@@ -39,7 +39,7 @@ La aplicación web se desarrolla con un enfoque en mejorar la experiencia de usu
 
 **Requisitos:**
 
-* Descargar un servidor local, recomiendo (Wampserver64).
+* Descargar un servidor local, recomiendo [Wampserver64](https://www.wampserver.com/en/download-wampserver-64bits/)
 
 **Instrucciones:**
 
