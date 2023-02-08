@@ -16,18 +16,18 @@ Mi objetivo es brindar una experiencia intuitiva y sencilla para la administraci
 
 La aplicación cuenta con **tres módulos:**
 
-**El Primer Módulo:** El registro de ingresos periódicos.
+**El registro de ingresos periódicos:**
 
 * Permite registrar, actualizar y eliminar los ingresos de manera eficiente.
 * Tiene una herramienta de búsqueda para filtrar registros y un paginador para organizarlos.
 
-**Segundo Módulo:** La administración de ingresos y deudas.
+**La administración de ingresos y deudas:**
 
 * Ofrece una interfaz accesible para la gestión de gastos y deudas.
 * Permite registrar, actualizar y eliminar gastos de manera eficiente.
 * Tiene una herramienta de búsqueda para filtrar los registros.
 
-**Tercer Módulo:** Población de tablas.
+**Población de tablas:**
 
 * Permite llenar la tabla con datos preestablecidos para facilitar la gestión de información y evitar tener que ingresar los datos manualmente cada mes.
 
