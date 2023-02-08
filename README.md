@@ -41,7 +41,7 @@ La aplicación web se desarrolla con un enfoque en mejorar la experiencia de usu
 
 * Descargar un servidor local, recomiendo (Wampserver64).
 
-**Configuracion:**
+**Configuración:**
 
 1. Descargar el proyecto de GitHub:
 
