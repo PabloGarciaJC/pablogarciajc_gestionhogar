@@ -37,22 +37,42 @@ La aplicación web se desarrolla con un enfoque en mejorar la experiencia de usu
 
 ## Instalación
 
-### Requisitos
+**Requisitos:**
 
 * Descargar un servidor local, recomiendo (Wampserver64).
-* Descagar el Proyecto en Github.
 
-### Configuración
+**Configuracion:**
 
-1. Verifique que WAMP esté instalado y en ejecución en su computadora.
+1. Descargar el proyecto de GitHub:
 
-2. Cree una carpeta en el escritorio llamada "portafolios" y extraiga el proyecto que previamente descargó de Github. Verifique que el nombre de la carpeta sea "pablogarciajc_gestionhogar" y copie y pegue dicha carpeta en la carpeta "www" dentro del directorio de instalación de WAMP.
+    * Vaya al repositorio del proyecto en GitHub.
+    * Haga clic en el botón "Clone or download".
+    * Seleccione "Download ZIP" para descargar un archivo ZIP con el proyecto.
 
-3. Cree una nueva base de datos en phpMyAdmin: con el nombre de "pablogarciajc_gestionhogar".
+2. Mover el proyecto a la carpeta de servidor WAMP:
 
-4. Para crear las tablas para la base de datos: acceda al archivo del proyecto llamado "database", copie el código que está dentro del archivo con la extensión .sql y diríjase a phpMyAdmin. Seleccione la base de datos creada y vaya a la pestaña SQL y pegue el código.
+    * Abra la carpeta "www" dentro de la carpeta de instalación de WAMP en su equipo.
+    * Cree una carpeta en el escritorio llamada «portafolios».
+    * Descomprima el archivo ZIP descargado en la carpeta "www/portafolios", que previamente descargó de Github.
+    * Verifique que el nombre de la carpeta del proyecto sea «pablogarciajc_gestionhogar».
 
-5. En un navegador, vaya a "http://localhost/portafolios/pablogarciajc_gestionhogar/" para acceder a su proyecto.
+3. Iniciar WAMP:
+
+    * Haga clic en el icono de WAMP en la bandeja del sistema (es posible que deba hacer clic con el botón derecho del mouse para ver todas las opciones disponibles).
+    * Seleccione "Start All Services" para iniciar el servidor WAMP.
+
+4. Acceder a phpMyAdmin:
+
+    * Abra un navegador web y escriba "localhost/phpmyadmin" en la barra de direcciones.
+    * Ingrese su nombre de usuario y contraseña de phpMyAdmin.
+
+5. Importar la base de datos en phpMyAdmin:
+
+    * En la pestaña "Importar", haga clic en el botón "Examinar" y seleccione el archivo de la base de datos que desea importar en su equipo, el cual esta en  el archivo del proyecto llamado «database» que ha descargado de Github y tiene como nombre pablogarciajc_gestionhogar.sql
+    * Asegúrese de que el formato de la base de datos sea compatible con phpMyAdmin y seleccione la correcta opción de formato (por ejemplo, SQL).
+    * Haga clic en el botón "Ir" para iniciar la importación.
+
+Después de importar la base de datos, en un navegador, vaya a [http://localhost/portafolios/pablogarciajc_gestionhogar/] para acceder a su proyecto.
 
 ## Contáctame para más información o preguntas
 
@@ -64,5 +84,7 @@ La aplicación web se desarrolla con un enfoque en mejorar la experiencia de usu
 
 "El buen trabajo es la solución de hoy.
 Para construir el futuro del mañana"
+
+
 
 
