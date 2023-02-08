@@ -14,7 +14,7 @@ Mi objetivo es brindar una experiencia intuitiva y sencilla para la administraci
 
 ## Funcionaliades
 
-La aplicación cuenta con tres módulos: registro de ingresos periódicos, administración de ingresos y deudas, y población de tablas.
+La aplicación cuenta con **tres módulos:**
 
 **El Primer Módulo:** El registro de ingresos periódicos.
 
